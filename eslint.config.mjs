@@ -129,6 +129,27 @@ const config = [
     name: 'project:ignores',
     ignores: ['.next/**', 'out/**', 'build/**', 'next-env.d.ts'],
   },
+  {
+    name: 'project:shadcn-overrides',
+    files: ['components/ui/**/*.{ts,tsx}', 'hooks/**/*.{ts,tsx}'],
+    rules: {
+      'import/order': 'off',
+      'react/jsx-sort-props': 'off',
+      'react-hooks/purity': 'off',
+      'sonarjs/prefer-read-only-props': 'off',
+      'sonarjs/no-nested-conditional': 'off',
+      'sonarjs/function-return-type': 'off',
+      'sonarjs/table-header': 'off',
+      'sonarjs/pseudo-random': 'off',
+      'unicorn/explicit-length-check': 'off',
+      'unicorn/prefer-string-replace-all': 'off',
+      'unicorn/no-negated-condition': 'off',
+      'unicorn/no-useless-undefined': 'off',
+      'unicorn/prefer-global-this': 'off',
+      'unicorn/no-nested-ternary': 'off',
+      'unicorn/no-document-cookie': 'off',
+    },
+  },
 ];
 
 export default config;
