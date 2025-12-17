@@ -1,6 +1,6 @@
 # Changelog
 
-## setup-project & basic configuration
+## 1: Setup project & Basic configuration
 
 - Scaffolded the app with `pnpm create next-app`, selecting the App Router, TypeScript, ESLint, Tailwind CSS 4 (`@tailwindcss/postcss`), and React 19 on Next.js 16.
 - Bootstrapped the initial shell: `app/layout.tsx` (Geist fonts/metadata), `app/globals.css` (theme tokens + Tailwind), and `app/page.tsx` (starter hero with light/dark).
@@ -13,3 +13,4 @@
 - Initialized shadcn/ui for Tailwind v4 + Next.js/React 19 (`components.json`, `lib/utils.ts`) and installed all UI components/hooks via `pnpm dlx shadcn@latest add --all`, pulling in Radix UI, form, chart, and utility dependencies.
 - Added shadcn components under `components/ui/` and `hooks/use-mobile.ts`, updated `app/globals.css` with shadcn tokens, and relaxed ESLint rules for generated UI files to keep lint/format checks passing.
 - Added theme support: installed `next-themes`, created `components/theme-provider.tsx`, and applied the shadcn Vercel theme (`pnpm dlx shadcn@latest add https://tweakcn.com/r/themes/vercel.json`) updating `app/globals.css` tokens.
+- Implemented header theme toggle (`components/theme-toggle.tsx`) and updated layout/page: theme-aware shell with header, cleaned hero copy in `app/page.tsx`, and lint-compliant import/prop ordering in `app/layout.tsx`.
