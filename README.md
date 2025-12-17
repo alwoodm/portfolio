@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+# Portfolio
 
-First, run the development server:
+  <p>
+    <strong>My private portfolio build in Next.js</strong>
+  </p>
+
+  <p>
+    <img src="https://img.shields.io/badge/status-in%20development-orange?style=flat-square" alt="Status" />
+    <img src="https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square&label=License&color=blue" alt="License" />
+  </p>
+
+<h3>Tech Stack</h3>
+  <p>
+    <img src="https://img.shields.io/badge/Next.js_16-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
+    <img src="https://img.shields.io/badge/React_19-20232a?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+    <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+    <br />
+    <img src="https://img.shields.io/badge/Tailwind_CSS_v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+    <img src="https://img.shields.io/badge/shadcn%2Fui-000000?style=for-the-badge&logo=shadcnui&logoColor=white" alt="Shadcn/ui" />
+  </p>
+  <p>
+     <img src="https://img.shields.io/badge/pnpm-F69220?style=for-the-badge&logo=pnpm&logoColor=white" alt="pnpm" />
+     <img src="https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+  </p>
+</div>
+
+---
+
+## 🚀 Overview
+
+This is a modern portfolio scaffold designed for speed and scalability. It leverages the bleeding edge of the React ecosystem, utilizing **Next.js 16** and **React 19** features, styled with the new **Tailwind CSS v4** engine and **shadcn/ui** components. Theme management is handled seamlessly via `next-themes`.
+
+## 🛠️ Run Locally
+
+Clone the project and install the dependencies to get started.
+
+### Prerequisites
+
+Make sure you have `pnpm` installed.
+
+### Development Commands
+
+| Action         | Command             | Description                              |
+| :------------- | :------------------ | :--------------------------------------- |
+| **Install**    | `pnpm install`      | Install all dependencies                 |
+| **Dev Server** | `pnpm dev`          | Starts server at `http://localhost:3000` |
+| **Lint**       | `pnpm lint`         | Runs ESLint                              |
+| **Format**     | `pnpm format:check` | Checks code formatting                   |
+| **Type Check** | `pnpm tsc --noEmit` | Validates TypeScript types               |
+
+### 🐳 Docker Support
+
+To run the production build inside a Docker container, modify .env as needed by copying the example file:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.example .env
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then build and run with Docker Compose:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+docker compose up --build
+```
