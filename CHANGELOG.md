@@ -12,3 +12,4 @@
 - Initialized Husky pre-commit to run `pnpm tsc --noEmit` then `npx lint-staged`; lint-staged now checks (no auto-fix) using `eslint --max-warnings=0` and `prettier --check` on staged JS/TS/MD/CSS/JSON to block commits when issues exist.
 - Initialized shadcn/ui for Tailwind v4 + Next.js/React 19 (`components.json`, `lib/utils.ts`) and installed all UI components/hooks via `pnpm dlx shadcn@latest add --all`, pulling in Radix UI, form, chart, and utility dependencies.
 - Added shadcn components under `components/ui/` and `hooks/use-mobile.ts`, updated `app/globals.css` with shadcn tokens, and relaxed ESLint rules for generated UI files to keep lint/format checks passing.
+- Added theme support: installed `next-themes`, created `components/theme-provider.tsx`, and applied the shadcn Vercel theme (`pnpm dlx shadcn@latest add https://tweakcn.com/r/themes/vercel.json`) updating `app/globals.css` tokens.
