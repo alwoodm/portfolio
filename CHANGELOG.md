@@ -14,3 +14,4 @@
 - Added shadcn components under `components/ui/` and `hooks/use-mobile.ts`, updated `app/globals.css` with shadcn tokens, and relaxed ESLint rules for generated UI files to keep lint/format checks passing.
 - Added theme support: installed `next-themes`, created `components/theme-provider.tsx`, and applied the shadcn Vercel theme (`pnpm dlx shadcn@latest add https://tweakcn.com/r/themes/vercel.json`) updating `app/globals.css` tokens.
 - Implemented header theme toggle (`components/theme-toggle.tsx`) and updated layout/page: theme-aware shell with header, cleaned hero copy in `app/page.tsx`, and lint-compliant import/prop ordering in `app/layout.tsx`.
+- Added containerization: multi-stage `Dockerfile`, `docker-compose.yml` with env-file support, `.dockerignore`, and sample `.env`/`.env.example` (`PORT`, `NEXT_PUBLIC_APP_URL`) for repeatable builds and deploys.

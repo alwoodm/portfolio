@@ -1,0 +1,15 @@
+.git
+.gitignore
+.next
+.husky
+.pnpm-store
+node_modules
+dist
+build
+out
+Dockerfile
+docker-compose.yml
+*.log
+tmp
+temp
+*.tsbuildinfo
