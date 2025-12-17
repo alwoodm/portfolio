@@ -1,0 +1,8 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Type-check without emitting files
+pnpm tsc --noEmit
+
+# Lint and format staged files (check only)
+npx lint-staged
