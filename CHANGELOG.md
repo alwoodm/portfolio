@@ -1,5 +1,9 @@
 # Changelog
 
+## 2: Setup layout
+
+- Removed unused scaffolded SVG assets from `public/`.
+
 ## 1: Setup project & Basic configuration
 
 - Scaffolded the app with `pnpm create next-app`, selecting the App Router, TypeScript, ESLint, Tailwind CSS 4 (`@tailwindcss/postcss`), and React 19 on Next.js 16.
