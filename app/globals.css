@@ -125,13 +125,6 @@
   --tracking-normal: 0em;
   --letter-spacing: 0em;
   --spacing: 0.25rem;
-  --grid-columns: 28;
-  --grid-rows: 18;
-  --grid-unit-x: calc(100vw / var(--grid-columns));
-  --grid-unit-y: calc(100vh / var(--grid-rows));
-  --grid-line: 1px;
-  --grid-color: oklch(0 0 0 / 0.12);
-  --grid-background: var(--background);
   --shadow-offset-x: var(--shadow-x);
   --shadow-offset-y: var(--shadow-y);
 }
@@ -188,8 +181,6 @@
   --shadow-xl: 0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 8px 10px -1px hsl(0 0% 0% / 0.18);
   --shadow-2xl: 0px 1px 2px 0px hsl(0 0% 0% / 0.45);
   --letter-spacing: 0em;
-  --grid-color: oklch(1 0 0 / 0.2);
-  --grid-background: var(--background);
   --shadow-offset-x: var(--shadow-x);
   --shadow-offset-y: var(--shadow-y);
 }
@@ -215,17 +206,5 @@
   100% {
     opacity: 0;
     transform: scale(1.6);
-  }
-}
-
-@layer utilities {
-  .bg-cyber-grid {
-    background-color: var(--grid-background);
-    background-image:
-      linear-gradient(to right, var(--grid-color) var(--grid-line), transparent var(--grid-line)),
-      linear-gradient(to bottom, var(--grid-color) var(--grid-line), transparent var(--grid-line));
-    background-position: 0 0;
-    background-repeat: repeat;
-    background-size: var(--grid-unit-x) var(--grid-unit-y);
   }
 }

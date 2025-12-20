@@ -2,6 +2,7 @@ import './globals.css';
 
 import { Geist, Geist_Mono } from 'next/font/google';
 
+import { GridBackground } from '@/components/grid-background';
 import { ThemeProvider } from '@/components/theme-provider';
 import { ModeToggle } from '@/components/theme-toggle';
 
@@ -36,10 +37,10 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
         >
-          <div className="bg-cyber-grid text-foreground min-h-screen transition-colors duration-300 motion-reduce:transition-none">
+          <GridBackground fade={false} gridSize="56px">
             {children}
             <ModeToggle />
-          </div>
+          </GridBackground>
         </ThemeProvider>
       </body>
     </html>

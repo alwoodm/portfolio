@@ -9,6 +9,7 @@
 - Moved page content into JSON data files (`data/home.json`, `data/about.json`, `data/contact.json`, `data/projects.json`, `data/skills.json`) and wired pages to read them.
 - Added About, Projects, Skills, and Contact pages with minimal layouts driven by JSON content.
 - Replaced the theme dropdown with a fixed, animated round toggle button.
+- Replaced the grid background implementation with a reusable component and larger grid size; added an optional fade overlay.
 
 ## 1: Setup project & Basic configuration
 
