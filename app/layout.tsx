@@ -36,11 +36,9 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
         >
-          <div className="bg-cyber-grid text-foreground min-h-screen">
-            <header className="flex h-[72px] items-center justify-end px-6">
-              <ModeToggle />
-            </header>
+          <div className="bg-cyber-grid text-foreground min-h-screen transition-colors duration-300 motion-reduce:transition-none">
             {children}
+            <ModeToggle />
           </div>
         </ThemeProvider>
       </body>

@@ -8,6 +8,7 @@
 - Matched the header height to 72px to align the hero layout with `min-h-[calc(100vh-72px)]`.
 - Moved page content into JSON data files (`data/home.json`, `data/about.json`, `data/contact.json`, `data/projects.json`, `data/skills.json`) and wired pages to read them.
 - Added About, Projects, Skills, and Contact pages with minimal layouts driven by JSON content.
+- Replaced the theme dropdown with a fixed, animated round toggle button.
 
 ## 1: Setup project & Basic configuration
 
