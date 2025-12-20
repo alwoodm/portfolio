@@ -10,6 +10,7 @@
 - Added About, Projects, Skills, and Contact pages with minimal layouts driven by JSON content.
 - Replaced the theme dropdown with a fixed, animated round toggle button.
 - Replaced the grid background implementation with a reusable component and larger grid size; added an optional fade overlay.
+- Added the Dock component and fixed lint issues (renamed to `components/dock.tsx`, updated imports, prop typing, and dependencies).
 
 ## 1: Setup project & Basic configuration
 
