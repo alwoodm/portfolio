@@ -38,8 +38,8 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
         >
-          <GridBackground fade={false} gridSize="56px">
-            {children}
+          <GridBackground fade={false}>
+            <div className="pt-24 sm:pt-28">{children}</div>
             <Navbar />
             <ModeToggle />
           </GridBackground>

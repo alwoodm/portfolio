@@ -4,6 +4,7 @@ import { Briefcase, Folder, Home, Mail, Sparkles, User } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 
 import Dock, { type DockItemData } from '@/components/dock';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { cn } from '@/lib/utils';
 
 const NAV_ITEMS = [
@@ -18,6 +19,7 @@ const NAV_ITEMS = [
 export function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
+  const isMobile = useIsMobile();
 
   const items: DockItemData[] = NAV_ITEMS.map((item) => {
     const isActive = pathname === item.href;
@@ -32,14 +34,26 @@ export function Navbar() {
     };
   });
 
+  const baseItemSize = isMobile ? 40 : 44;
+  const magnification = isMobile ? 40 : 62;
+  const distance = isMobile ? 120 : 170;
+  const panelHeight = isMobile ? 56 : 60;
+  const gapClassName = isMobile ? 'gap-2' : 'gap-3';
+  const panelClassName = cn(
+    gapClassName,
+    isMobile ? 'w-[84vw] max-w-[360px] px-2 justify-between' : '',
+  );
+
   return (
     <div className="pointer-events-none fixed top-0 right-0 left-0 z-40 flex justify-center py-4">
       <Dock
-        baseItemSize={50}
+        baseItemSize={baseItemSize}
+        className={panelClassName}
         containerClassName="pointer-events-auto"
+        distance={distance}
         items={items}
-        magnification={70}
-        panelHeight={68}
+        magnification={magnification}
+        panelHeight={panelHeight}
         position="top"
       />
     </div>

@@ -179,7 +179,7 @@ export default function Dock({
     >
       <motion.div
         aria-label="Application dock"
-        className={`${className} border-border bg-background/70 text-foreground absolute left-1/2 flex w-fit -translate-x-1/2 transform gap-4 rounded-2xl border-2 px-4 backdrop-blur ${panelPadding} ${panelPosition}`}
+        className={`border-border bg-background/70 text-foreground absolute left-1/2 flex w-fit -translate-x-1/2 transform gap-4 rounded-2xl border-2 px-4 backdrop-blur ${panelPadding} ${panelPosition} ${className}`}
         role="toolbar"
         style={{ height: panelHeight }}
         onMouseLeave={() => {

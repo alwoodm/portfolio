@@ -17,7 +17,7 @@ export default async function Home() {
   const content = await getHomeContent();
 
   return (
-    <main className="flex min-h-[calc(100vh-72px)] flex-col items-center justify-center gap-8 px-6 text-center sm:px-10">
+    <main className="flex min-h-[calc(100svh-96px)] flex-col items-center justify-center gap-8 px-6 text-center sm:min-h-[calc(100svh-112px)] sm:px-10">
       <div className="flex flex-col gap-4">
         <p className="text-muted-foreground text-sm font-medium tracking-[0.2em] uppercase">
           {content.eyebrow}

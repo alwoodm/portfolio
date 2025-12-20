@@ -13,7 +13,7 @@ export function GridBackground({
   children,
   className,
   fade = false,
-  gridSize = '56px',
+  gridSize = 'clamp(44px, 12vw, 56px)',
 }: GridBackgroundProps) {
   const style = { '--grid-size': gridSize } as CSSProperties;
 

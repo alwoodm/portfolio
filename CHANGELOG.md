@@ -12,6 +12,7 @@
 - Replaced the grid background implementation with a reusable component and larger grid size; added an optional fade overlay.
 - Added the Dock component and fixed lint issues (renamed to `components/dock.tsx`, updated imports, prop typing, and dependencies).
 - Added a floating top navigation dock, aligned tooltips for top placement, and synced dock colors with the active theme.
+- Tuned responsive sizing for the dock and theme toggle, and corrected the home hero height to avoid mobile scroll.
 
 ## 1: Setup project & Basic configuration
 
