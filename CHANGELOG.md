@@ -3,6 +3,9 @@
 ## 2: Setup layout
 
 - Removed unused scaffolded SVG assets from `public/`.
+- Added an edge-to-edge responsive grid background driven by CSS variables.
+- Restored light/dark theme tokens and synced the grid colors to the active theme.
+- Matched the header height to 72px to align the hero layout with `min-h-[calc(100vh-72px)]`.
 
 ## 1: Setup project & Basic configuration
 

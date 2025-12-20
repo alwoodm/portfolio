@@ -36,8 +36,8 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
         >
-          <div className="bg-background text-foreground min-h-screen">
-            <header className="flex items-center justify-end px-6 py-4">
+          <div className="bg-cyber-grid text-foreground min-h-screen">
+            <header className="flex h-[72px] items-center justify-end px-6">
               <ModeToggle />
             </header>
             {children}
