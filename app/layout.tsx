@@ -3,6 +3,7 @@ import './globals.css';
 import { Geist, Geist_Mono } from 'next/font/google';
 
 import { GridBackground } from '@/components/grid-background';
+import { Navbar } from '@/components/navbar';
 import { ThemeProvider } from '@/components/theme-provider';
 import { ModeToggle } from '@/components/theme-toggle';
 
@@ -39,6 +40,7 @@ export default function RootLayout({
         >
           <GridBackground fade={false} gridSize="56px">
             {children}
+            <Navbar />
             <ModeToggle />
           </GridBackground>
         </ThemeProvider>

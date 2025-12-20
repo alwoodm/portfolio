@@ -1,26 +1,24 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-type Content = {
-  career: {
-    title: string;
-    description: string;
-  };
+type CareerContent = {
+  title: string;
+  description: string;
 };
 
-async function getContent(): Promise<Content> {
-  const filePath = path.join(process.cwd(), 'data', 'content.json');
+async function getCareerContent(): Promise<CareerContent> {
+  const filePath = path.join(process.cwd(), 'data', 'career.json');
   const fileBuffer = await fs.readFile(filePath);
-  return JSON.parse(fileBuffer.toString()) as Content;
+  return JSON.parse(fileBuffer.toString()) as CareerContent;
 }
 
 export default async function CareerPage() {
-  const content = await getContent();
+  const content = await getCareerContent();
 
   return (
     <main className="mx-auto w-full max-w-2xl px-6 py-12">
-      <h1 className="text-foreground text-3xl font-semibold">{content.career.title}</h1>
-      <p className="text-muted-foreground mt-4">{content.career.description}</p>
+      <h1 className="text-foreground text-3xl font-semibold">{content.title}</h1>
+      <p className="text-muted-foreground mt-4">{content.description}</p>
     </main>
   );
 }

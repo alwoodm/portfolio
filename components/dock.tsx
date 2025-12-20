@@ -21,6 +21,8 @@ export type DockItemData = {
 export type DockProps = Readonly<{
   items: DockItemData[];
   className?: string;
+  containerClassName?: string;
+  position?: 'bottom' | 'top';
   distance?: number;
   panelHeight?: number;
   baseItemSize?: number;
@@ -72,7 +74,7 @@ function DockItem({
     <motion.div
       ref={ref}
       aria-haspopup="true"
-      className={`relative inline-flex items-center justify-center rounded-full border-2 border-neutral-700 bg-[#060010] shadow-md ${className}`}
+      className={`border-border bg-background/90 text-foreground relative inline-flex items-center justify-center rounded-full border-2 shadow-md backdrop-blur ${className}`}
       role="button"
       style={{
         width: size,
@@ -100,9 +102,10 @@ type DockLabelProps = Readonly<{
   className?: string;
   children: React.ReactNode;
   isHovered?: MotionValue<number>;
+  position: 'bottom' | 'top';
 }>;
 
-function DockLabel({ children, className = '', isHovered }: DockLabelProps) {
+function DockLabel({ children, className = '', isHovered, position }: DockLabelProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -113,12 +116,14 @@ function DockLabel({ children, className = '', isHovered }: DockLabelProps) {
     return () => unsubscribe();
   }, [isHovered]);
 
+  const placement = position === 'top' ? 'top-full mt-2' : '-top-6';
+
   return (
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          animate={{ opacity: 1, y: -10 }}
-          className={`${className} absolute -top-6 left-1/2 w-fit rounded-md border border-neutral-700 bg-[#060010] px-2 py-0.5 text-xs whitespace-pre text-white`}
+          animate={{ opacity: 1, y: position === 'top' ? 10 : -10 }}
+          className={`${className} border-border bg-background/90 text-foreground absolute left-1/2 w-fit rounded-md border px-2 py-0.5 text-xs whitespace-pre shadow-sm backdrop-blur ${placement}`}
           exit={{ opacity: 0, y: 0 }}
           initial={{ opacity: 0, y: 0 }}
           role="tooltip"
@@ -145,6 +150,8 @@ function DockIcon({ children, className = '' }: DockIconProps) {
 export default function Dock({
   items,
   className = '',
+  containerClassName = '',
+  position = 'bottom',
   spring = { mass: 0.1, stiffness: 150, damping: 12 },
   magnification = 70,
   distance = 200,
@@ -155,6 +162,9 @@ export default function Dock({
   const mouseX = useMotionValue(Infinity);
   const isHovered = useMotionValue(0);
 
+  const panelPosition = position === 'top' ? 'top-0 items-start' : 'bottom-2 items-end';
+  const panelPadding = position === 'top' ? 'pt-2 pb-2' : 'pb-2 pt-2';
+
   const maxHeight = useMemo(
     () => Math.max(dockHeight, magnification + magnification / 2 + 4),
     [dockHeight, magnification],
@@ -164,12 +174,12 @@ export default function Dock({
 
   return (
     <motion.div
-      className="mx-2 flex max-w-full items-center"
+      className={`relative mx-2 flex max-w-full items-center justify-center ${containerClassName}`}
       style={{ height, scrollbarWidth: 'none' }}
     >
       <motion.div
         aria-label="Application dock"
-        className={`${className} absolute bottom-2 left-1/2 flex w-fit -translate-x-1/2 transform items-end gap-4 rounded-2xl border-2 border-neutral-700 px-4 pb-2`}
+        className={`${className} border-border bg-background/70 text-foreground absolute left-1/2 flex w-fit -translate-x-1/2 transform gap-4 rounded-2xl border-2 px-4 backdrop-blur ${panelPadding} ${panelPosition}`}
         role="toolbar"
         style={{ height: panelHeight }}
         onMouseLeave={() => {
@@ -193,7 +203,7 @@ export default function Dock({
             onClick={item.onClick}
           >
             <DockIcon>{item.icon}</DockIcon>
-            <DockLabel>{item.label}</DockLabel>
+            <DockLabel position={position}>{item.label}</DockLabel>
           </DockItem>
         ))}
       </motion.div>
