@@ -1,0 +1,14 @@
+{
+  "title": "Projects",
+  "description": "A few selected projects and experiments.",
+  "items": [
+    {
+      "title": "Project One",
+      "description": "Short description for the first project."
+    },
+    {
+      "title": "Project Two",
+      "description": "Short description for the second project."
+    }
+  ]
+}

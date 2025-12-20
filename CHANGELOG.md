@@ -6,6 +6,8 @@
 - Added an edge-to-edge responsive grid background driven by CSS variables.
 - Restored light/dark theme tokens and synced the grid colors to the active theme.
 - Matched the header height to 72px to align the hero layout with `min-h-[calc(100vh-72px)]`.
+- Moved page content into JSON data files (`data/home.json`, `data/about.json`, `data/contact.json`, `data/projects.json`, `data/skills.json`) and wired pages to read them.
+- Added About, Projects, Skills, and Contact pages with minimal layouts driven by JSON content.
 
 ## 1: Setup project & Basic configuration
 
