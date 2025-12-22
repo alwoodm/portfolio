@@ -9,6 +9,7 @@
 - Split the hero into `HeroText` and `HeroSocial` components for cleaner layout and future animation hooks.
 - Added a reusable text-typing animation component under `components/animation/text-type.tsx` and wired the secondary role to animate through `roles`.
 - Centered the hero columns and scaled the layout (text block + logo sizing) for a larger, more balanced hero presentation.
+- Added the AnimatedContent utility in `components/animation/animated-content.tsx` and aligned it with linting rules for future motion work.
 
 ## 2: Setup layout
 
