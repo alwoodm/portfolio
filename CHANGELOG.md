@@ -13,6 +13,7 @@
 - Added the Dock component and fixed lint issues (renamed to `components/dock.tsx`, updated imports, prop typing, and dependencies).
 - Added a floating top navigation dock, aligned tooltips for top placement, and synced dock colors with the active theme.
 - Tuned responsive sizing for the dock and theme toggle, and corrected the home hero height to avoid mobile scroll.
+- Ensured `public/` is tracked in git via `public/.gitkeep` to fix Docker copy in CI.
 
 ## 1: Setup project & Basic configuration
 
