@@ -2,6 +2,8 @@ import './globals.css';
 
 import { Geist, Geist_Mono } from 'next/font/google';
 
+import { GridBackground } from '@/components/grid-background';
+import { Navbar } from '@/components/navbar';
 import { ThemeProvider } from '@/components/theme-provider';
 import { ModeToggle } from '@/components/theme-toggle';
 
@@ -36,12 +38,11 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
         >
-          <div className="bg-background text-foreground min-h-screen">
-            <header className="flex items-center justify-end px-6 py-4">
-              <ModeToggle />
-            </header>
-            {children}
-          </div>
+          <GridBackground fade={false}>
+            <div className="pt-24 sm:pt-28">{children}</div>
+            <Navbar />
+            <ModeToggle />
+          </GridBackground>
         </ThemeProvider>
       </body>
     </html>

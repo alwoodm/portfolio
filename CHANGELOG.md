@@ -1,5 +1,20 @@
 # Changelog
 
+## 2: Setup layout
+
+- Removed unused scaffolded SVG assets from `public/`.
+- Added an edge-to-edge responsive grid background driven by CSS variables.
+- Restored light/dark theme tokens and synced the grid colors to the active theme.
+- Matched the header height to 72px to align the hero layout with `min-h-[calc(100vh-72px)]`.
+- Moved page content into JSON data files (`data/home.json`, `data/about.json`, `data/contact.json`, `data/projects.json`, `data/skills.json`) and wired pages to read them.
+- Added About, Projects, Skills, and Contact pages with minimal layouts driven by JSON content.
+- Replaced the theme dropdown with a fixed, animated round toggle button.
+- Replaced the grid background implementation with a reusable component and larger grid size; added an optional fade overlay.
+- Added the Dock component and fixed lint issues (renamed to `components/dock.tsx`, updated imports, prop typing, and dependencies).
+- Added a floating top navigation dock, aligned tooltips for top placement, and synced dock colors with the active theme.
+- Tuned responsive sizing for the dock and theme toggle, and corrected the home hero height to avoid mobile scroll.
+- Ensured `public/` is tracked in git via `public/.gitkeep` to fix Docker copy in CI.
+
 ## 1: Setup project & Basic configuration
 
 - Scaffolded the app with `pnpm create next-app`, selecting the App Router, TypeScript, ESLint, Tailwind CSS 4 (`@tailwindcss/postcss`), and React 19 on Next.js 16.

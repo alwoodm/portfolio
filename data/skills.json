@@ -1,0 +1,18 @@
+{
+  "title": "Skills",
+  "description": "Core tools and disciplines I use day to day.",
+  "categories": [
+    {
+      "title": "Frontend",
+      "items": ["React", "Next.js", "TypeScript", "Tailwind CSS"]
+    },
+    {
+      "title": "Backend",
+      "items": ["Node.js", "REST APIs", "Auth", "Data modeling"]
+    },
+    {
+      "title": "UI/UX",
+      "items": ["Design systems", "Accessibility", "Responsive layout"]
+    }
+  ]
+}
