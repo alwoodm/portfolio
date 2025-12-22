@@ -34,7 +34,7 @@ export function HeroSocial({
   if (links.length === 0) return null;
 
   return (
-    <div className={cn('flex flex-wrap gap-3 pt-2', className)} data-hero="social">
+    <div className={cn('flex flex-wrap gap-3 pt-6', className)} data-hero="social">
       {links.map((link, index) => {
         const delay = animationDelay + index * animationStagger;
 

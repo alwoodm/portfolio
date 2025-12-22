@@ -79,7 +79,7 @@ export default async function Home() {
           distance={72}
           duration={leftColumnDuration}
         >
-          <div className="flex w-full flex-col text-left">
+          <div className="flex w-full flex-col text-left lg:pl-[calc(var(--grid-size)*1.25)]">
             <HeroText
               intro={content.intro}
               name={content.name}
@@ -104,7 +104,7 @@ export default async function Home() {
           duration={1}
         >
           <HeroIcon
-            className="h-auto w-full max-w-[432px] sm:max-w-[624px] lg:max-w-[768px]"
+            className="h-auto w-full max-w-[432px] sm:max-w-[624px] lg:ml-[calc(var(--grid-size)*0.5)] lg:max-w-[768px]"
             title=""
           />
         </AnimatedContent>

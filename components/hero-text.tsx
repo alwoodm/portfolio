@@ -34,7 +34,7 @@ export function HeroText({
         {intro}
       </p>
       <h1
-        className="text-foreground text-6xl leading-tight font-semibold text-balance sm:text-7xl lg:text-7xl xl:text-8xl"
+        className="text-foreground text-[4rem] leading-[0.99] font-semibold text-balance sm:text-[4.75rem] lg:text-[4.75rem] xl:text-[6.25rem]"
         data-hero="name"
       >
         {firstName}

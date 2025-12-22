@@ -12,6 +12,7 @@
 - Added the AnimatedContent utility in `components/animation/animated-content.tsx` and aligned it with linting rules for future motion work.
 - Added entrance animations to the hero columns using `AnimatedContent` with longer slide/fade timing.
 - Sequenced hero animations so the social buttons reveal after the column motion and before the typing loop begins.
+- Tuned hero spacing and alignment (name sizing/leading, social gap, and subtle grid-aligned offsets for both columns).
 
 ## 2: Setup layout
 
