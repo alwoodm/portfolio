@@ -1,5 +1,10 @@
 # Changelog
 
+## 3: Implement hero page
+
+- Added a circular SVG favicon based on the green logo (`app/icon.svg`), replacing the legacy `.ico`.
+- Reworked the home hero layout into a two-column composition with larger typography, a prominent inverted logo mark, and upward positioning.
+
 ## 2: Setup layout
 
 - Removed unused scaffolded SVG assets from `public/`.
