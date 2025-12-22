@@ -12,7 +12,7 @@ export function HeroIcon({ className, title = '' }: HeroIconProps) {
     <svg
       aria-hidden={isDecorative}
       aria-label={isDecorative ? undefined : title}
-      className={cn('text-foreground', className)}
+      className={cn('text-primary', className)}
       fill="currentColor"
       focusable="false"
       role={isDecorative ? 'presentation' : 'img'}

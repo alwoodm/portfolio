@@ -37,13 +37,8 @@ export function HeroText({
         className="text-foreground text-[4rem] leading-[0.99] font-semibold text-balance sm:text-[4.75rem] lg:text-[4.75rem] xl:text-[6.25rem]"
         data-hero="name"
       >
-        {firstName}
-        {lastName ? (
-          <>
-            <br />
-            {lastName}
-          </>
-        ) : null}
+        <span className="block">{firstName}</span>
+        {lastName ? <span className="text-primary block">{lastName}</span> : null}
       </h1>
       {primaryRole ? (
         <p className="text-muted-foreground text-3xl sm:text-4xl" data-hero="role">
@@ -55,7 +50,7 @@ export function HeroText({
               <TextType
                 startOnVisible
                 as="span"
-                className="text-foreground font-semibold"
+                className="text-primary font-semibold"
                 deletingSpeed={40}
                 initialDelay={secondaryRoleDelayMs ?? 0}
                 pauseDuration={1200}
