@@ -4,6 +4,8 @@
 
 - Added a circular SVG favicon based on the green logo (`app/icon.svg`), replacing the legacy `.ico`.
 - Reworked the home hero layout into a two-column composition with larger typography, a prominent inverted logo mark, and upward positioning.
+- Updated `data/home.json` to include name/role content and social links, and wired the hero text + LinkedIn/GitHub buttons to that data.
+- Refined the hero copy layout to the “My name is / I am a … and …” structure and tuned social button sizing.
 
 ## 2: Setup layout
 
