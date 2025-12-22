@@ -9,9 +9,17 @@ type HeroTextProps = Readonly<{
   name: string;
   primaryRole?: string;
   secondaryRoles?: string[];
+  secondaryRoleDelayMs?: number;
 }>;
 
-export function HeroText({ className, intro, name, primaryRole, secondaryRoles }: HeroTextProps) {
+export function HeroText({
+  className,
+  intro,
+  name,
+  primaryRole,
+  secondaryRoles,
+  secondaryRoleDelayMs,
+}: HeroTextProps) {
   const nameParts = name.split(' ').filter(Boolean);
   const firstName = nameParts[0] ?? '';
   const lastName = nameParts.slice(1).join(' ');
@@ -45,9 +53,11 @@ export function HeroText({ className, intro, name, primaryRole, secondaryRoles }
               <br />
               and{' '}
               <TextType
+                startOnVisible
                 as="span"
                 className="text-foreground font-semibold"
                 deletingSpeed={40}
+                initialDelay={secondaryRoleDelayMs ?? 0}
                 pauseDuration={1200}
                 text={typedRoles}
                 typingSpeed={70}
