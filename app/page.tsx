@@ -37,7 +37,6 @@ export default async function Home() {
   const content = await getHomeContent();
 
   const primaryRole = content.role;
-  const secondaryRole = content.roles[0] ?? '';
   const socialLinks: HeroSocialLink[] = [];
   const linkedinUrl = content.social.linkedin;
   const githubUrl = content.social.github;
@@ -60,19 +59,19 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-[calc(100svh-96px)] flex-col items-center justify-center px-6 sm:min-h-[calc(100svh-112px)] sm:px-10 lg:-translate-y-12">
-      <div className="flex w-full max-w-6xl flex-col items-center gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
-        <div className="flex w-full flex-col text-left lg:w-[40%]">
+      <div className="flex w-full max-w-7xl flex-col items-center gap-6 lg:flex-row lg:items-center lg:justify-center lg:gap-12">
+        <div className="flex w-full flex-col text-left lg:w-[45%]">
           <HeroText
             intro={content.intro}
             name={content.name}
             primaryRole={primaryRole}
-            secondaryRole={secondaryRole}
+            secondaryRoles={content.roles}
           />
           <HeroSocial links={socialLinks} />
         </div>
-        <div className="flex w-full items-center justify-center lg:w-[40%]">
+        <div className="flex w-full items-center justify-center lg:w-[45%]">
           <HeroIcon
-            className="h-auto w-full max-w-[360px] sm:max-w-[520px] lg:max-w-[640px]"
+            className="h-auto w-full max-w-[432px] sm:max-w-[624px] lg:max-w-[768px]"
             title=""
           />
         </div>

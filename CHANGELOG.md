@@ -7,7 +7,8 @@
 - Updated `data/home.json` to include name/role content and social links, and wired the hero text + LinkedIn/GitHub buttons to that data.
 - Refined the hero copy layout to the “My name is / I am a … and …” structure and tuned social button sizing.
 - Split the hero into `HeroText` and `HeroSocial` components for cleaner layout and future animation hooks.
-- Added a reusable text-typing animation component under `components/animation/text-type.tsx` for upcoming hero motion work.
+- Added a reusable text-typing animation component under `components/animation/text-type.tsx` and wired the secondary role to animate through `roles`.
+- Centered the hero columns and scaled the layout (text block + logo sizing) for a larger, more balanced hero presentation.
 
 ## 2: Setup layout
 
