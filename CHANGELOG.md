@@ -15,6 +15,11 @@
 - Tuned hero spacing and alignment (name sizing/leading, social gap, and subtle grid-aligned offsets for both columns).
 - Swapped the global theme tokens to the Supabase preset and set the primary color to the logo green.
 - Simplified the hero text layout and alignment to a clean, responsive stack.
+- Reverted the primary font to **Outfit** to restore the original geometric aesthetic.
+- Implemented precision optical alignment for the Hero text using a hybrid CSS strategy (`data-letter` attributes + `::first-letter` negative margins).
+- Tuned the optical alignment specifically for "A" (-0.005em) and "L" (-0.045em) to perfectly balance the visual weight on the grid.
+- Fixed the Dock sizing logic to ensure icons are vertically centered by enforcing a 20px difference between `panelHeight` and `baseItemSize` (e.g., 70px/50px).
+- Resolved linting issues in `app/layout.tsx` (unused imports) and `components/hero-text.tsx` (class ordering).
 
 ## 2: Setup layout
 
