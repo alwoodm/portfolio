@@ -1,5 +1,9 @@
 # Changelog
 
+## 4: Skills page groundwork
+
+- Updated `data/skills.json` to support badge/title/description and icon IDs per skill item.
+
 - Aligned the hero text and icon columns to sit equidistant from center on large screens.
 
 ## 3: Implement hero page
