@@ -14,6 +14,7 @@
 - Sequenced hero animations so the social buttons reveal after the column motion and before the typing loop begins.
 - Tuned hero spacing and alignment (name sizing/leading, social gap, and subtle grid-aligned offsets for both columns).
 - Swapped the global theme tokens to the Supabase preset and set the primary color to the logo green.
+- Simplified the hero text layout and alignment to a clean, responsive stack.
 
 ## 2: Setup layout
 

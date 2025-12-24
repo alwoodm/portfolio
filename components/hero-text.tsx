@@ -26,26 +26,36 @@ export function HeroText({
   const typedRoles = secondaryRoles?.filter(Boolean) ?? [];
 
   return (
-    <div className={cn('flex flex-col gap-4', className)} data-hero="text">
+    <div className={cn('flex flex-col gap-4 text-left', className)} data-hero="text">
       <p
-        className="text-muted-foreground text-xl font-medium tracking-[0.28em] uppercase"
+        className="text-muted-foreground text-sm font-medium tracking-[0.28em] uppercase sm:text-base"
         data-hero="intro"
       >
         {intro}
       </p>
       <h1
-        className="text-foreground text-[4rem] leading-[0.99] font-semibold text-balance sm:text-[4.75rem] lg:text-[4.75rem] xl:text-[6.25rem]"
+        className="text-foreground text-5xl leading-[0.95] font-semibold sm:text-6xl lg:text-7xl xl:text-8xl"
         data-hero="name"
       >
-        <span className="block">{firstName}</span>
-        {lastName ? <span className="text-primary block">{lastName}</span> : null}
+        <span className="optical-fix-lg block" data-letter={firstName[0]}>
+          {firstName}
+        </span>
+        {lastName ? (
+          <span className="text-primary optical-fix-lg block" data-letter={lastName[0]}>
+            {lastName}
+          </span>
+        ) : null}
       </h1>
       {primaryRole ? (
-        <p className="text-muted-foreground text-3xl sm:text-4xl" data-hero="role">
-          I am a <span className="text-foreground font-semibold">{primaryRole}</span>
+        <p
+          className="text-muted-foreground text-2xl leading-snug sm:text-3xl lg:text-4xl"
+          data-hero="role"
+        >
+          <span className="block">
+            I am a <span className="text-foreground font-semibold">{primaryRole}</span>
+          </span>
           {typedRoles.length > 0 ? (
-            <>
-              <br />
+            <span className="block">
               and{' '}
               <TextType
                 startOnVisible
@@ -57,9 +67,8 @@ export function HeroText({
                 text={typedRoles}
                 typingSpeed={70}
               />
-            </>
+            </span>
           ) : null}
-          .
         </p>
       ) : null}
     </div>

@@ -52,7 +52,7 @@ export function HeroSocial({
               aria-label={link.label}
               className={cn(
                 buttonVariants({ variant: 'outline', size: 'icon' }),
-                'bg-background text-foreground hover:bg-background h-12 w-12 shadow-md',
+                'bg-card text-foreground hover:bg-card h-12 w-12 shadow-md',
               )}
               href={link.href}
               rel="noreferrer"

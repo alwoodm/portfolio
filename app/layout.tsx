@@ -1,6 +1,6 @@
 import './globals.css';
 
-import { Geist, Geist_Mono } from 'next/font/google';
+import { JetBrains_Mono as FontMono, Outfit as FontSans } from 'next/font/google';
 
 import { GridBackground } from '@/components/grid-background';
 import { Navbar } from '@/components/navbar';
@@ -9,14 +9,14 @@ import { ModeToggle } from '@/components/theme-toggle';
 
 import type { Metadata } from 'next';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const fontSans = FontSans({
   subsets: ['latin'],
+  variable: '--font-sans',
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const fontMono = FontMono({
   subsets: ['latin'],
+  variable: '--font-mono',
 });
 
 export const metadata: Metadata = {
@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${fontSans.variable} ${fontMono.variable} antialiased`}>
         <ThemeProvider
           disableTransitionOnChange
           enableSystem
