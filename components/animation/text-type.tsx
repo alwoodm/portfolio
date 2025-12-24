@@ -37,7 +37,9 @@ const getSecureRandom = (min: number, max: number) => {
     const fraction = array[0] / maxUint32;
     return min + fraction * (max - min);
   }
-  return min;
+  // Fallback to non-cryptographic randomness when crypto is unavailable.
+  // eslint-disable-next-line sonarjs/pseudo-random
+  return min + Math.random() * (max - min);
 };
 
 const TextType = ({
