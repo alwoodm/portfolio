@@ -1,5 +1,10 @@
 {
-  "eyebrow": "Portfolio Hero Page",
-  "title": "Welcome to alwood.dev",
-  "description": "My name is alwood, and I'm a software engineer. I'm passionate about building scalable and maintainable software solutions."
+  "intro": "My name is",
+  "name": "Aleksander Lis",
+  "role": "Software Engineer",
+  "roles": ["Frontend Developer", "UI Engineer", "Product Builder"],
+  "social": {
+    "linkedin": "https://www.linkedin.com/",
+    "github": "https://github.com/"
+  }
 }

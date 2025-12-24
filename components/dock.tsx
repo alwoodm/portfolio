@@ -155,7 +155,7 @@ export default function Dock({
   spring = { mass: 0.1, stiffness: 150, damping: 12 },
   magnification = 70,
   distance = 200,
-  panelHeight = 64,
+  panelHeight = 70,
   dockHeight = 256,
   baseItemSize = 50,
 }: DockProps) {

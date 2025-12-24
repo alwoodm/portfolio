@@ -37,7 +37,7 @@ export function Navbar() {
   const baseItemSize = isMobile ? 40 : 44;
   const magnification = isMobile ? 40 : 62;
   const distance = isMobile ? 120 : 170;
-  const panelHeight = isMobile ? 56 : 60;
+  const panelHeight = isMobile ? 60 : 64;
   const gapClassName = isMobile ? 'gap-2' : 'gap-3';
   const panelClassName = cn(
     gapClassName,
