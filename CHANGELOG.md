@@ -1,5 +1,7 @@
 # Changelog
 
+- Aligned the hero text and icon columns to sit equidistant from center on large screens.
+
 ## 3: Implement hero page
 
 - Added a circular SVG favicon based on the green logo (`app/icon.svg`), replacing the legacy `.ico`.

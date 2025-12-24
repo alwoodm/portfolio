@@ -69,17 +69,17 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-[calc(100svh-96px)] flex-col items-center justify-center px-6 sm:min-h-[calc(100svh-112px)] sm:px-10 lg:-translate-y-12">
-      <div className="flex w-full max-w-7xl flex-col items-center gap-6 lg:flex-row lg:items-center lg:justify-center lg:gap-12">
+      <div className="grid w-full max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <AnimatedContent
           animateOpacity
           reverse
-          className="w-full lg:w-[45%]"
+          className="w-full lg:justify-self-end"
           delay={leftColumnDelay}
           direction="horizontal"
           distance={72}
           duration={leftColumnDuration}
         >
-          <div className="flex w-full flex-col text-left lg:pl-[calc(var(--grid-size)*1.25)]">
+          <div className="flex w-full max-w-xl flex-col items-start text-left">
             <HeroText
               intro={content.intro}
               name={content.name}
@@ -97,14 +97,14 @@ export default async function Home() {
         </AnimatedContent>
         <AnimatedContent
           animateOpacity
-          className="flex w-full items-center justify-center lg:w-[45%]"
+          className="flex w-full items-center justify-center lg:justify-self-start"
           delay={0.18}
           direction="horizontal"
           distance={88}
           duration={1}
         >
           <HeroIcon
-            className="h-auto w-full max-w-[432px] sm:max-w-[624px] lg:ml-[calc(var(--grid-size)*0.5)] lg:max-w-[768px]"
+            className="h-auto w-full max-w-[432px] sm:max-w-[624px] lg:max-w-[720px]"
             title=""
           />
         </AnimatedContent>
