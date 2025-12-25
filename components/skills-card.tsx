@@ -17,7 +17,6 @@ type IconState = Readonly<{
 }>;
 
 export function SkillsCard({ name, iconId, className }: SkillsCardProps) {
-  const fallback = name.trim().charAt(0).toUpperCase() || '?';
   const [iconState, setIconState] = useState<IconState>({
     id: '',
     data: null,
@@ -59,21 +58,20 @@ export function SkillsCard({ name, iconId, className }: SkillsCardProps) {
   return (
     <div
       className={cn(
-        'border-border bg-card/60 text-foreground flex shrink-0 items-center gap-3 rounded-md border px-3 py-2 shadow-sm',
+        'border-border bg-card/60 text-foreground flex shrink-0 items-center rounded-md border px-3 py-2 shadow-sm',
         'hover:bg-accent/70 transition-colors duration-200',
+        activeIcon ? 'gap-3' : 'gap-0',
         className,
       )}
     >
-      <div
-        aria-hidden
-        className="bg-muted text-muted-foreground flex h-8 w-8 items-center justify-center rounded-md text-xs font-semibold"
-      >
-        {activeIcon ? (
+      {activeIcon ? (
+        <div
+          aria-hidden
+          className="bg-muted text-muted-foreground flex h-8 w-8 items-center justify-center rounded-md text-xs font-semibold"
+        >
           <Icon className="h-4 w-4" height="unset" icon={activeIcon} width="unset" />
-        ) : (
-          <span>{fallback}</span>
-        )}
-      </div>
+        </div>
+      ) : null}
       <span className="text-sm font-medium">{name}</span>
     </div>
   );
