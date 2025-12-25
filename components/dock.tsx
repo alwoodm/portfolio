@@ -174,7 +174,7 @@ export default function Dock({
 
   return (
     <motion.div
-      className={`relative mx-2 flex max-w-full items-center justify-center ${containerClassName}`}
+      className={`relative mx-2 flex w-full max-w-full items-center justify-center ${containerClassName}`}
       style={{ height, scrollbarWidth: 'none' }}
     >
       <motion.div

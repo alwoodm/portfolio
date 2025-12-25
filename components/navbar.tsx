@@ -41,7 +41,7 @@ export function Navbar() {
   const gapClassName = isMobile ? 'gap-2' : 'gap-3';
   const panelClassName = cn(
     gapClassName,
-    isMobile ? 'w-[84vw] max-w-[360px] px-2 justify-between' : '',
+    isMobile ? 'w-full max-w-[360px] px-2 justify-between' : '',
   );
 
   return (

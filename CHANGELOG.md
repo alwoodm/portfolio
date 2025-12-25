@@ -5,6 +5,8 @@
 - Updated `data/skills.json` to support badge/title/description and icon IDs per skill item.
 - Reworked the Skills page to render badge + header copy from JSON and introduced new skills layout components.
 - Matched the Skills badge icon to the navbar Skills icon.
+- Enabled the Skills logo loop on mobile when overflowing and restored pause-on-hover behavior per item.
+- Stabilized mobile rendering with a `useSyncExternalStore`-based `useIsMobile` and full-width dock container centering.
 
 - Aligned the hero text and icon columns to sit equidistant from center on large screens.
 
