@@ -17,7 +17,7 @@ export function SkillsSection({ title, items }: SkillsSectionProps) {
       <h2 className="text-foreground text-lg font-semibold sm:text-xl">{title}</h2>
       <SkillsRow>
         {items.map((item) => (
-          <SkillsCard key={item.name} name={item.name} />
+          <SkillsCard key={item.name} iconId={item.iconId} name={item.name} />
         ))}
       </SkillsRow>
     </section>
