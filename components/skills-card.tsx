@@ -58,21 +58,21 @@ export function SkillsCard({ name, iconId, className }: SkillsCardProps) {
   return (
     <div
       className={cn(
-        'border-border bg-card/60 text-foreground flex shrink-0 items-center rounded-md border px-3 py-2 shadow-sm',
+        'border-border bg-card/60 text-foreground flex h-28 w-28 shrink-0 flex-col items-center justify-center gap-2 rounded-lg border text-center shadow-sm',
         'hover:bg-accent/70 transition-colors duration-200',
-        activeIcon ? 'gap-3' : 'gap-0',
         className,
       )}
     >
       {activeIcon ? (
-        <div
+        <Icon
           aria-hidden
-          className="bg-muted text-muted-foreground flex h-8 w-8 items-center justify-center rounded-md text-xs font-semibold"
-        >
-          <Icon className="h-4 w-4" height="unset" icon={activeIcon} width="unset" />
-        </div>
+          className="text-muted-foreground h-12 w-12"
+          height="unset"
+          icon={activeIcon}
+          width="unset"
+        />
       ) : null}
-      <span className="text-sm font-medium">{name}</span>
+      <span className="text-xs leading-tight font-medium">{name}</span>
     </div>
   );
 }

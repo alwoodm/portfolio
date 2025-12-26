@@ -11,8 +11,7 @@
         { "name": "JavaScript", "iconId": "devicon:javascript" },
         { "name": "TypeScript", "iconId": "devicon:typescript" },
         { "name": "C++", "iconId": "devicon:cplusplus" },
-        { "name": "Python", "iconId": "devicon:python" },
-        { "name": "Java", "iconId": "devicon:java" }
+        { "name": "Python", "iconId": "devicon:python" }
       ]
     },
     {

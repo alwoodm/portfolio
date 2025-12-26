@@ -8,6 +8,8 @@
 - Enabled the Skills logo loop on mobile when overflowing and restored pause-on-hover behavior per item.
 - Stabilized mobile rendering with a `useSyncExternalStore`-based `useIsMobile` and full-width dock container centering.
 - Added Iconify integration for Skills icons with name-only fallback when icons are unavailable.
+- Centered the Skills content based on the widest row so headings and badges align to the first icon.
+- Updated Skills cards to a fixed-size grid with larger icon marks.
 
 - Aligned the hero text and icon columns to sit equidistant from center on large screens.
 

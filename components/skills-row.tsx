@@ -115,7 +115,7 @@ export function SkillsRow({ children, className }: SkillsRowProps) {
             speed={60}
           />
         ) : (
-          <div className="flex w-max gap-3">{renderItems('base')}</div>
+          <div className="flex w-max shrink-0 gap-3">{renderItems('base')}</div>
         )}
       </div>
       <div className="pointer-events-none invisible absolute inset-0">
