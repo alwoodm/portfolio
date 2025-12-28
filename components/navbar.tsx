@@ -45,7 +45,7 @@ export function Navbar() {
   );
 
   return (
-    <div className="pointer-events-none fixed top-0 right-0 left-0 z-40 flex justify-center py-4">
+    <div className="pointer-events-none fixed top-[env(safe-area-inset-top)] right-0 left-0 z-40 flex justify-center py-4">
       <Dock
         baseItemSize={baseItemSize}
         className={panelClassName}

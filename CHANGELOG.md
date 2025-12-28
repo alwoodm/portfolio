@@ -10,6 +10,7 @@
 - Added Iconify integration for Skills icons with name-only fallback when icons are unavailable.
 - Centered the Skills content based on the widest row so headings and badges align to the first icon.
 - Updated Skills cards to a fixed-size grid with larger icon marks.
+- Adjusted mobile layout behavior (safe-area offsets + overflow guards) for navbar/theme toggle.
 
 - Aligned the hero text and icon columns to sit equidistant from center on large screens.
 
