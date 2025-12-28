@@ -12,7 +12,7 @@ export function ModeToggle() {
     <button
       aria-label="Toggle theme"
       className={cn(
-        'fixed right-4 bottom-4 z-50 flex h-12 w-12 items-center justify-center rounded-full sm:right-6 sm:bottom-6 sm:h-11 sm:w-11',
+        'fixed right-[calc(1rem+env(safe-area-inset-right))] bottom-[calc(1rem+env(safe-area-inset-bottom))] z-50 flex h-12 w-12 items-center justify-center rounded-full sm:right-6 sm:bottom-6 sm:h-11 sm:w-11',
         'border-border bg-background/80 text-foreground border shadow-sm backdrop-blur',
         'focus-visible:ring-ring focus-visible:ring-2 focus-visible:outline-none',
         'transition-colors duration-300 motion-reduce:transition-none',

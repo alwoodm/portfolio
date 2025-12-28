@@ -41,11 +41,11 @@ export function Navbar() {
   const gapClassName = isMobile ? 'gap-2' : 'gap-3';
   const panelClassName = cn(
     gapClassName,
-    isMobile ? 'w-[84vw] max-w-[360px] px-2 justify-between' : '',
+    isMobile ? 'w-full max-w-[360px] px-2 justify-between' : '',
   );
 
   return (
-    <div className="pointer-events-none fixed top-0 right-0 left-0 z-40 flex justify-center py-4">
+    <div className="pointer-events-none fixed top-[env(safe-area-inset-top)] right-0 left-0 z-40 flex justify-center py-4">
       <Dock
         baseItemSize={baseItemSize}
         className={panelClassName}

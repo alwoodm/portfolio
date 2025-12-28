@@ -192,7 +192,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground transition-colors duration-300 motion-reduce:transition-none;
+    @apply bg-background text-foreground overflow-x-hidden transition-colors duration-300 motion-reduce:transition-none;
     letter-spacing: var(--tracking-normal);
   }
 }
@@ -211,7 +211,20 @@
   }
 }
 
+@keyframes skills-loop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 @layer utilities {
+  .animate-skills-loop {
+    animation: skills-loop 32s linear infinite;
+  }
+
   .optical-fix::first-letter {
     margin-left: -0.05em;
   }

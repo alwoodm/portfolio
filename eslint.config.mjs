@@ -127,7 +127,7 @@ const config = [
   },
   {
     name: 'project:ignores',
-    ignores: ['.next/**', 'out/**', 'build/**', 'next-env.d.ts'],
+    ignores: ['.next/**', 'out/**', 'build/**', 'next-env.d.ts', 'stolen-code/**'],
   },
   {
     name: 'project:shadcn-overrides',

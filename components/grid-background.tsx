@@ -20,7 +20,7 @@ export function GridBackground({
   return (
     <div
       className={cn(
-        'text-foreground relative min-h-screen w-full bg-white dark:bg-black',
+        'text-foreground relative min-h-[100svh] w-full overflow-x-hidden bg-white dark:bg-black',
         'transition-colors duration-300 motion-reduce:transition-none',
         className,
       )}

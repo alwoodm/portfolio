@@ -1,18 +1,42 @@
 {
+  "badge": "My Skills",
   "title": "Skills",
   "description": "Core tools and disciplines I use day to day.",
   "categories": [
     {
-      "title": "Frontend",
-      "items": ["React", "Next.js", "TypeScript", "Tailwind CSS"]
+      "title": "Programming Languages",
+      "items": [
+        { "name": "HTML5", "iconId": "devicon:html5" },
+        { "name": "CSS3", "iconId": "devicon:css3" },
+        { "name": "JavaScript", "iconId": "devicon:javascript" },
+        { "name": "TypeScript", "iconId": "devicon:typescript" },
+        { "name": "C++", "iconId": "devicon:cplusplus" },
+        { "name": "Python", "iconId": "devicon:python" }
+      ]
     },
     {
-      "title": "Backend",
-      "items": ["Node.js", "REST APIs", "Auth", "Data modeling"]
+      "title": "Framework/Libraries",
+      "items": [
+        { "name": "React", "iconId": "devicon:react" },
+        { "name": "Next.js", "iconId": "devicon:nextjs" },
+        { "name": "Vue.js", "iconId": "devicon:vuejs" },
+        { "name": "Svelte", "iconId": "devicon:svelte" },
+        { "name": "Tailwind CSS", "iconId": "devicon:tailwindcss" },
+        { "name": "Bootstrap", "iconId": "devicon:bootstrap" },
+        { "name": "shadcn/ui", "iconId": "simple-icons:shadcnui" }
+      ]
     },
     {
-      "title": "UI/UX",
-      "items": ["Design systems", "Accessibility", "Responsive layout"]
+      "title": "Tools & Technologies",
+      "items": [
+        { "name": "Git", "iconId": "devicon:git" },
+        { "name": "GitHub", "iconId": "devicon:github" },
+        { "name": "VS Code", "iconId": "devicon:vscode" },
+        { "name": "Docker", "iconId": "devicon:docker" },
+        { "name": "Firebase", "iconId": "devicon:firebase" },
+        { "name": "MongoDB", "iconId": "devicon:mongodb" },
+        { "name": "PostgreSQL", "iconId": "devicon:postgresql" }
+      ]
     }
   ]
 }
