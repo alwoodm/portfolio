@@ -3,6 +3,7 @@
 ## 5: About page update
 
 - Expanded `data/about.json` to include the new About hero title, markdown-friendly description, personal info, and hobbies.
+- Adjusted About info alignment so mobile stays left-aligned while desktop keeps centered language cards without drift.
 - Rebuilt the About page layout with the hero + personal info + hobbies sections to match the stolen-code direction.
 - Added a minimal inline markdown renderer for bold/italic emphasis in the About description copy.
 - Introduced an Iconify-powered personal info item component for gender, nationality, and languages.

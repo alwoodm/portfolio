@@ -57,12 +57,12 @@ export default async function AboutPage() {
             <AnimatedContent
               animateOpacity
               reverse
-              className="w-full"
+              className="w-full md:justify-self-start"
               direction="horizontal"
               distance={56}
               duration={1.1}
             >
-              <div className="space-y-4 text-left md:justify-self-start">
+              <div className="space-y-4 text-left">
                 <div className="flex items-center gap-3">
                   <div className="bg-primary/10 text-primary flex h-11 w-11 items-center justify-center rounded-2xl">
                     <Heart className="h-6 w-6" />
@@ -92,14 +92,14 @@ export default async function AboutPage() {
           {languageItem ? (
             <AnimatedContent
               animateOpacity
-              className="w-fit justify-self-center"
+              className="w-full md:w-fit md:justify-self-center"
               delay={0.08}
               direction="vertical"
               distance={56}
               duration={1.1}
             >
               <AboutInfoCard
-                className="w-fit"
+                className="w-full md:w-fit"
                 iconId={languageItem.iconId}
                 items={languageItem.items}
                 label={languageItem.label}
@@ -111,17 +111,17 @@ export default async function AboutPage() {
           {rightItems.length > 0 ? (
             <AnimatedContent
               animateOpacity
-              className="w-fit justify-self-end"
+              className="w-full md:w-fit md:justify-self-end"
               delay={0.16}
               direction="horizontal"
               distance={56}
               duration={1.1}
             >
-              <div className="flex w-fit flex-col gap-6">
+              <div className="flex w-full flex-col gap-6 md:w-fit">
                 {rightItems.map((item) => (
                   <AboutInfoCard
                     key={item.label}
-                    className="w-fit"
+                    className="w-full md:w-fit"
                     iconId={item.iconId}
                     items={item.items}
                     label={item.label}

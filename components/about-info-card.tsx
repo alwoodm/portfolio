@@ -15,7 +15,10 @@ type AboutInfoCardProps = Readonly<{
   iconId: string;
   items?: AboutListItem[];
   align?: 'left' | 'center' | 'right';
+  containerClassName?: string;
   className?: string;
+  headerClassName?: string;
+  itemClassName?: string;
 }>;
 
 type IconState = Readonly<{
@@ -47,7 +50,10 @@ export function AboutInfoCard({
   iconId,
   items,
   align = 'left',
+  containerClassName,
   className,
+  headerClassName,
+  itemClassName,
 }: AboutInfoCardProps) {
   const [iconState, setIconState] = useState<IconState>({ id: '', data: null });
   const resolvedIcon = useMemo(() => iconId ?? '', [iconId]);
@@ -79,6 +85,7 @@ export function AboutInfoCard({
 
   const activeIcon = iconState.id === resolvedIcon ? iconState.data : null;
   let content: ReactNode = null;
+  const resolvedItemClassName = itemClassName ?? alignClasses.item;
 
   if (items && items.length > 0) {
     content = (
@@ -87,7 +94,7 @@ export function AboutInfoCard({
           <AboutIconItem
             key={`${label}-${item.label}`}
             align={align}
-            className={alignClasses.item}
+            className={resolvedItemClassName}
             iconId={item.iconId}
             label={item.label}
             labelClassName="text-base"
@@ -102,8 +109,21 @@ export function AboutInfoCard({
   }
 
   return (
-    <div className={cn('flex w-full flex-col gap-3', alignClasses.container, className)}>
-      <div className={cn('text-primary flex w-full items-center gap-4', alignClasses.header)}>
+    <div
+      className={cn(
+        'flex w-full flex-col gap-3',
+        alignClasses.container,
+        containerClassName,
+        className,
+      )}
+    >
+      <div
+        className={cn(
+          'text-primary flex w-full items-center gap-4',
+          alignClasses.header,
+          headerClassName,
+        )}
+      >
         <div className="bg-primary/10 text-primary flex h-12 w-12 items-center justify-center rounded-xl">
           {activeIcon ? (
             <Icon aria-hidden className="h-7 w-7" height="unset" icon={activeIcon} width="unset" />

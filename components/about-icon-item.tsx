@@ -88,7 +88,7 @@ export function AboutIconItem({
         />
       ) : null}
       <div className="space-y-1">
-        <div className={cn('flex flex-wrap items-center gap-2', alignment.row)}>
+        <div className={cn('flex items-center gap-2', alignment.row)}>
           <span className={cn('text-sm font-medium', labelClassName)}>{label}</span>
           {level ? (
             <span
