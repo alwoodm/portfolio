@@ -8,6 +8,7 @@
 - Introduced an Iconify-powered personal info item component for gender, nationality, and languages.
 - Split hobbies and personal info into a two-column layout with flag-based list items and lighter styling.
 - Refined About layout alignment to keep hobbies left, languages centered, and personal info anchored right.
+- Consolidated About layout into `app/about/page.tsx` and moved shared data types into `lib/about.ts`, `lib/home.ts`, and `lib/skills.ts`.
 
 ## 4: Skills page groundwork
 

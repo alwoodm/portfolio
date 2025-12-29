@@ -3,15 +3,10 @@
 import { Icon, loadIcon, type IconifyIcon } from '@iconify/react';
 import { useEffect, useMemo, useState } from 'react';
 
+import type { AboutListItem } from '@/lib/about';
 import { cn } from '@/lib/utils';
 
-export type AboutIconItemData = Readonly<{
-  label: string;
-  iconId: string;
-  level?: string;
-}>;
-
-type AboutIconItemProps = AboutIconItemData &
+type AboutIconItemProps = AboutListItem &
   Readonly<{
     className?: string;
     iconClassName?: string;

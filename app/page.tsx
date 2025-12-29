@@ -8,6 +8,7 @@ import AnimatedContent from '@/components/animation/animated-content';
 import { HeroIcon } from '@/components/hero-icon';
 import { HeroSocial } from '@/components/hero-social';
 import { HeroText } from '@/components/hero-text';
+import type { HomeContent } from '@/lib/home';
 
 import type { ReactNode } from 'react';
 
@@ -15,17 +16,6 @@ type HeroSocialLink = {
   label: string;
   href: string;
   icon: ReactNode;
-};
-
-type HomeContent = {
-  intro: string;
-  name: string;
-  role: string;
-  roles: string[];
-  social: {
-    linkedin?: string;
-    github?: string;
-  };
 };
 
 async function getHomeContent(): Promise<HomeContent> {

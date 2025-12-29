@@ -3,14 +3,17 @@
 import { Icon, loadIcon, type IconifyIcon } from '@iconify/react';
 import { useEffect, useMemo, useState } from 'react';
 
-import { AboutIconItem, type AboutIconItemData } from '@/components/about-icon-item';
+import { AboutIconItem } from '@/components/about-icon-item';
+import type { AboutListItem } from '@/lib/about';
 import { cn } from '@/lib/utils';
+
+import type { ReactNode } from 'react';
 
 type AboutInfoCardProps = Readonly<{
   label: string;
   value?: string;
   iconId: string;
-  items?: AboutIconItemData[];
+  items?: AboutListItem[];
   align?: 'left' | 'center' | 'right';
   className?: string;
 }>;
@@ -75,7 +78,7 @@ export function AboutInfoCard({
   }, [resolvedIcon]);
 
   const activeIcon = iconState.id === resolvedIcon ? iconState.data : null;
-  let content: React.ReactNode = null;
+  let content: ReactNode = null;
 
   if (items && items.length > 0) {
     content = (
