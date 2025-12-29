@@ -1,4 +1,26 @@
 {
-  "title": "About",
-  "description": "Share a short bio or mission statement here."
+  "badge": "About me",
+  "title": "Software Engineer And Web Developer, Based In India.",
+  "description": "I am a **Full Stack Web Developer** from *Ramgarh cantt, Jharkhand, India.* I'm passionate about crafting web projects and contributing to open-source communities. I specialize in modern JavaScript frameworks and responsive CSS design, focusing on creating pixel-perfect, user-friendly interfaces. With strong attention to detail and efficient delivery, I build seamless web experiences that combine functionality with elegant design.",
+  "personalInfo": [
+    { "label": "Gender", "value": "Male", "iconId": "ph:gender-male" },
+    {
+      "label": "Nationality",
+      "iconId": "ph:globe-hemisphere-west",
+      "items": [{ "label": "Poland", "iconId": "twemoji:flag-poland" }]
+    },
+    {
+      "label": "Languages",
+      "iconId": "ph:translate",
+      "items": [
+        { "label": "Polish", "iconId": "twemoji:flag-poland", "level": "Native" },
+        { "label": "English", "iconId": "twemoji:flag-united-kingdom", "level": "B2" }
+      ]
+    }
+  ],
+  "hobbies": [
+    { "label": "Gaming", "iconId": "mdi:gamepad-variant" },
+    { "label": "Reading", "iconId": "mdi:book-open-page-variant" },
+    { "label": "Programming", "iconId": "mdi:code-tags" }
+  ]
 }

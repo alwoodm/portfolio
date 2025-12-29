@@ -1,5 +1,14 @@
 # Changelog
 
+## 5: About page update
+
+- Expanded `data/about.json` to include the new About hero title, markdown-friendly description, personal info, and hobbies.
+- Rebuilt the About page layout with the hero + personal info + hobbies sections to match the stolen-code direction.
+- Added a minimal inline markdown renderer for bold/italic emphasis in the About description copy.
+- Introduced an Iconify-powered personal info item component for gender, nationality, and languages.
+- Split hobbies and personal info into a two-column layout with flag-based list items and lighter styling.
+- Refined About layout alignment to keep hobbies left, languages centered, and personal info anchored right.
+
 ## 4: Skills page groundwork
 
 - Updated `data/skills.json` to support badge/title/description and icon IDs per skill item.
