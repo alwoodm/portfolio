@@ -124,11 +124,11 @@ export function AboutInfoCard({
           headerClassName,
         )}
       >
-        <div className="bg-primary/10 text-primary flex h-12 w-12 items-center justify-center rounded-xl">
-          {activeIcon ? (
+        {activeIcon ? (
+          <div className="bg-primary/10 text-primary flex h-12 w-12 items-center justify-center rounded-xl">
             <Icon aria-hidden className="h-7 w-7" height="unset" icon={activeIcon} width="unset" />
-          ) : null}
-        </div>
+          </div>
+        ) : null}
         <h3 className="text-primary text-xl font-semibold">{label}</h3>
       </div>
       {content}

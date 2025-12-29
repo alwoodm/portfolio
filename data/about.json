@@ -1,26 +1,34 @@
 {
   "badge": "About me",
-  "title": "Software Engineer And Web Developer, Based In India.",
-  "description": "I am a **Full Stack Web Developer** from *Ramgarh cantt, Jharkhand, India.* I'm passionate about crafting web projects and contributing to open-source communities. I specialize in modern JavaScript frameworks and responsive CSS design, focusing on creating pixel-perfect, user-friendly interfaces. With strong attention to detail and efficient delivery, I build seamless web experiences that combine functionality with elegant design.",
-  "personalInfo": [
-    { "label": "Gender", "value": "Male", "iconId": "ph:gender-male" },
-    {
-      "label": "Nationality",
-      "iconId": "ph:globe-hemisphere-west",
-      "items": [{ "label": "Poland", "iconId": "twemoji:flag-poland" }]
-    },
-    {
-      "label": "Languages",
-      "iconId": "ph:translate",
-      "items": [
-        { "label": "Polish", "iconId": "twemoji:flag-poland", "level": "Native" },
-        { "label": "English", "iconId": "twemoji:flag-united-kingdom", "level": "B2" }
-      ]
-    }
-  ],
-  "hobbies": [
-    { "label": "Gaming", "iconId": "mdi:gamepad-variant" },
-    { "label": "Reading", "iconId": "mdi:book-open-page-variant" },
-    { "label": "Programming", "iconId": "mdi:code-tags" }
-  ]
+  "title": "Student And Aspiring Full Stack Developer, Based In Poland.",
+  "description": "I am a **student** who wants to become a full stack developer. I enjoy building web projects, learning modern JavaScript frameworks, and sharpening my craft with responsive CSS. I am especially interested in **AI** and *competitive programming*, and I like turning ideas into clean, user-friendly interfaces.",
+  "hobbies": {
+    "title": "Hobbies",
+    "subtitle": "A few things I enjoy outside of studying.",
+    "items": [
+      { "label": "Gaming", "iconId": "mdi:gamepad-variant" },
+      { "label": "Reading", "iconId": "mdi:book-open-page-variant" },
+      { "label": "History", "iconId": "mdi:history" },
+      { "label": "Politics", "iconId": "mdi:account-tie" },
+      { "label": "Sports", "iconId": "mdi:soccer" }
+    ]
+  },
+  "languages": {
+    "label": "Languages",
+    "iconId": "ph:translate",
+    "items": [
+      { "label": "Polish", "iconId": "twemoji:flag-poland", "level": "Native" },
+      { "label": "English", "iconId": "twemoji:flag-united-kingdom", "level": "B2" }
+    ]
+  },
+  "gender": {
+    "label": "Gender",
+    "iconId": "ph:gender-male",
+    "value": "Male"
+  },
+  "nationality": {
+    "label": "Nationality",
+    "iconId": "ph:globe-hemisphere-west",
+    "items": [{ "label": "Poland", "iconId": "twemoji:flag-poland" }]
+  }
 }

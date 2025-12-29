@@ -4,17 +4,25 @@ export type AboutListItem = Readonly<{
   level?: string;
 }>;
 
-export type AboutInfoItem = Readonly<{
+export type AboutInfoBlock = Readonly<{
   label: string;
   iconId: string;
   value?: string;
   items?: AboutListItem[];
 }>;
 
+export type AboutHobbiesBlock = Readonly<{
+  title: string;
+  subtitle: string;
+  items: AboutListItem[];
+}>;
+
 export type AboutContent = Readonly<{
-  badge?: string;
+  badge: string;
   title: string;
   description: string;
-  personalInfo: AboutInfoItem[];
-  hobbies: AboutListItem[];
+  hobbies: AboutHobbiesBlock;
+  languages: AboutInfoBlock;
+  gender: AboutInfoBlock;
+  nationality: AboutInfoBlock;
 }>;
