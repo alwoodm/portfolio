@@ -4,25 +4,14 @@ import path from 'node:path';
 import { Sparkles } from 'lucide-react';
 
 import AnimatedContent from '@/components/animation/animated-content';
-import { SkillsSection, type SkillsItem } from '@/components/skills-section';
+import { SkillsSection } from '@/components/skills-section';
 import { Badge } from '@/components/ui/badge';
+import type { SkillsContent } from '@/lib/skills';
 
-type SkillCategory = {
-  title: string;
-  items: SkillsItem[];
-};
-
-type Skills = {
-  badge?: string;
-  title: string;
-  description: string;
-  categories: SkillCategory[];
-};
-
-async function getSkills(): Promise<Skills> {
+async function getSkills(): Promise<SkillsContent> {
   const filePath = path.join(process.cwd(), 'data', 'skills.json');
   const fileBuffer = await fs.readFile(filePath);
-  return JSON.parse(fileBuffer.toString()) as Skills;
+  return JSON.parse(fileBuffer.toString()) as SkillsContent;
 }
 
 export default async function SkillsPage() {

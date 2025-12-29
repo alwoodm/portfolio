@@ -1,10 +1,6 @@
 import { SkillsCard } from '@/components/skills-card';
 import { SkillsRow } from '@/components/skills-row';
-
-export type SkillsItem = Readonly<{
-  name: string;
-  iconId: string;
-}>;
+import type { SkillsItem } from '@/lib/skills';
 
 type SkillsSectionProps = Readonly<{
   title: string;

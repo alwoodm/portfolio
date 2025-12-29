@@ -1,5 +1,20 @@
 # Changelog
 
+## 5: About page update
+
+- Expanded `data/about.json` to include the new About hero title, markdown-friendly description, and fixed content blocks.
+- Adjusted About info alignment so mobile stays left-aligned while desktop keeps centered language cards without drift.
+- Simplified About data to fixed content blocks so the layout stays static while content changes.
+- Rebuilt the About page layout with the hero + personal info + hobbies sections to match the stolen-code direction.
+- Added a minimal inline markdown renderer for bold/italic emphasis in the About description copy.
+- Introduced an Iconify-powered personal info item component for gender, nationality, and languages.
+- Split hobbies and personal info into a three-column layout with flag-based list items and lighter styling.
+- Refined About layout alignment to keep hobbies left, languages centered, and personal info anchored right.
+- Consolidated About layout into `app/about/page.tsx` and moved shared data types into `lib/about.ts`, `lib/home.ts`, and `lib/skills.ts`.
+- Updated About mock content to a Poland-based student profile with AI and competitive programming focus.
+- Removed About field fallbacks to rely on the fixed schema and hide missing icons gracefully.
+- Replaced About hobbies with non-CS interests and refreshed the mock description copy.
+
 ## 4: Skills page groundwork
 
 - Updated `data/skills.json` to support badge/title/description and icon IDs per skill item.
