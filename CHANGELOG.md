@@ -14,6 +14,7 @@
 - Updated About mock content to a Poland-based student profile with AI and competitive programming focus.
 - Removed About field fallbacks to rely on the fixed schema and hide missing icons gracefully.
 - Replaced About hobbies with non-CS interests and refreshed the mock description copy.
+- Made home and skills JSON schemas required and removed page-level fallback checks.
 
 ## 4: Skills page groundwork
 

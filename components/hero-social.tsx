@@ -31,8 +31,6 @@ export function HeroSocial({
   className,
   links,
 }: HeroSocialProps) {
-  if (links.length === 0) return null;
-
   return (
     <div className={cn('flex flex-wrap gap-3 pt-6', className)} data-hero="social">
       {links.map((link, index) => {

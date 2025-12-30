@@ -16,7 +16,6 @@ async function getSkills(): Promise<SkillsContent> {
 
 export default async function SkillsPage() {
   const skills = await getSkills();
-  const badgeLabel = skills.badge ?? 'Skills';
   let maxItems = 1;
   for (const category of skills.categories) {
     maxItems = Math.max(maxItems, category.items.length);
@@ -33,7 +32,7 @@ export default async function SkillsPage() {
           <div className="flex flex-col items-start space-y-4 text-left">
             <Badge className="gap-1.5" variant="secondary">
               <Sparkles className="h-4 w-4" />
-              {badgeLabel}
+              {skills.badge}
             </Badge>
             <h1 className="text-foreground text-3xl font-semibold sm:text-4xl">{skills.title}</h1>
             <p className="text-muted-foreground max-w-2xl text-base sm:text-lg">

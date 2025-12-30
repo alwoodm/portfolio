@@ -4,7 +4,7 @@ export type HomeContent = Readonly<{
   role: string;
   roles: string[];
   social: {
-    linkedin?: string;
-    github?: string;
+    linkedin: string;
+    github: string;
   };
 }>;

@@ -27,26 +27,18 @@ async function getHomeContent(): Promise<HomeContent> {
 export default async function Home() {
   const content = await getHomeContent();
 
-  const primaryRole = content.role;
-  const socialLinks: HeroSocialLink[] = [];
-  const linkedinUrl = content.social.linkedin;
-  const githubUrl = content.social.github;
-
-  if (linkedinUrl) {
-    socialLinks.push({
+  const socialLinks: HeroSocialLink[] = [
+    {
       label: 'LinkedIn',
-      href: linkedinUrl,
+      href: content.social.linkedin,
       icon: <Linkedin className="h-6 w-6" />,
-    });
-  }
-
-  if (githubUrl) {
-    socialLinks.push({
+    },
+    {
       label: 'GitHub',
-      href: githubUrl,
+      href: content.social.github,
       icon: <Github className="h-6 w-6" />,
-    });
-  }
+    },
+  ];
 
   const leftColumnDelay = 0.12;
   const leftColumnDuration = 0.9;
@@ -73,7 +65,7 @@ export default async function Home() {
             <HeroText
               intro={content.intro}
               name={content.name}
-              primaryRole={primaryRole}
+              primaryRole={content.role}
               secondaryRoleDelayMs={typingDelayMs}
               secondaryRoles={content.roles}
             />

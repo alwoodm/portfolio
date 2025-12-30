@@ -9,7 +9,7 @@ export type SkillCategory = Readonly<{
 }>;
 
 export type SkillsContent = Readonly<{
-  badge?: string;
+  badge: string;
   title: string;
   description: string;
   categories: SkillCategory[];
