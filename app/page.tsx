@@ -50,12 +50,12 @@ export default async function Home() {
   const typingDelayMs = Math.round((socialDelay + socialSequenceDuration) * 1000);
 
   return (
-    <main className="flex min-h-[calc(100svh-96px)] flex-col items-center justify-center px-6 sm:min-h-[calc(100svh-112px)] sm:px-10 lg:-translate-y-12">
-      <div className="grid w-full max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+    <main className="flex min-h-[calc(100svh-96px)] flex-col items-center justify-center px-6 sm:min-h-[calc(100svh-112px)] sm:px-10 lg:-translate-y-14">
+      <div className="mx-auto grid w-full grid-cols-1 items-center gap-10 md:w-[70%] lg:w-[70%] lg:grid-cols-2 lg:gap-16">
         <AnimatedContent
           animateOpacity
           reverse
-          className="w-full lg:justify-self-end"
+          className="w-full lg:justify-self-start"
           delay={leftColumnDelay}
           direction="horizontal"
           distance={72}
@@ -79,7 +79,7 @@ export default async function Home() {
         </AnimatedContent>
         <AnimatedContent
           animateOpacity
-          className="flex w-full items-center justify-center lg:justify-self-start"
+          className="flex w-full items-center justify-center lg:justify-self-end"
           delay={0.18}
           direction="horizontal"
           distance={88}

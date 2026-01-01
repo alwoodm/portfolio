@@ -1,5 +1,12 @@
 # Changelog
 
+---
+
+- Made home and skills JSON schemas required and removed page-level fallback checks.
+- Tuned hero layout centering and lifted the home section with slightly larger mobile text.
+
+---
+
 ## 5: About page update
 
 - Expanded `data/about.json` to include the new About hero title, markdown-friendly description, and fixed content blocks.
@@ -14,7 +21,8 @@
 - Updated About mock content to a Poland-based student profile with AI and competitive programming focus.
 - Removed About field fallbacks to rely on the fixed schema and hide missing icons gracefully.
 - Replaced About hobbies with non-CS interests and refreshed the mock description copy.
-- Made home and skills JSON schemas required and removed page-level fallback checks.
+
+---
 
 ## 4: Skills page groundwork
 
@@ -28,7 +36,11 @@
 - Updated Skills cards to a fixed-size grid with larger icon marks.
 - Adjusted mobile layout behavior (safe-area offsets + overflow guards) for navbar/theme toggle.
 
+---
+
 - Aligned the hero text and icon columns to sit equidistant from center on large screens.
+
+---
 
 ## 3: Implement hero page
 
@@ -51,6 +63,8 @@
 - Fixed the Dock sizing logic to ensure icons are vertically centered by enforcing a 20px difference between `panelHeight` and `baseItemSize` (e.g., 70px/50px).
 - Resolved linting issues in `app/layout.tsx` (unused imports) and `components/hero-text.tsx` (class ordering).
 
+---
+
 ## 2: Setup layout
 
 - Removed unused scaffolded SVG assets from `public/`.
@@ -65,6 +79,8 @@
 - Added a floating top navigation dock, aligned tooltips for top placement, and synced dock colors with the active theme.
 - Tuned responsive sizing for the dock and theme toggle, and corrected the home hero height to avoid mobile scroll.
 - Ensured `public/` is tracked in git via `public/.gitkeep` to fix Docker copy in CI.
+
+---
 
 ## 1: Setup project & Basic configuration
 

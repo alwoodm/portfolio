@@ -28,13 +28,13 @@ export function HeroText({
   return (
     <div className={cn('flex flex-col gap-4 text-left', className)} data-hero="text">
       <p
-        className="text-muted-foreground text-sm font-medium tracking-[0.28em] uppercase sm:text-base"
+        className="text-muted-foreground text-base font-medium tracking-[0.28em] uppercase sm:text-base"
         data-hero="intro"
       >
         {intro}
       </p>
       <h1
-        className="text-foreground text-5xl leading-[0.95] font-semibold sm:text-6xl lg:text-7xl xl:text-8xl"
+        className="text-foreground text-6xl leading-[0.95] font-semibold sm:text-6xl lg:text-7xl xl:text-8xl"
         data-hero="name"
       >
         <span className="optical-fix-lg block" data-letter={firstName[0]}>
@@ -47,7 +47,7 @@ export function HeroText({
         ) : null}
       </h1>
       <p
-        className="text-muted-foreground text-2xl leading-snug sm:text-3xl lg:text-4xl"
+        className="text-muted-foreground text-3xl leading-snug sm:text-3xl lg:text-4xl"
         data-hero="role"
       >
         <span className="block">
