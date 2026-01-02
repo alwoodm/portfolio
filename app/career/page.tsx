@@ -4,6 +4,7 @@ import path from 'node:path';
 import { Briefcase } from 'lucide-react';
 
 import AnimatedContent from '@/components/animation/animated-content';
+import { CareerItem } from '@/components/career-item';
 import { Badge } from '@/components/ui/badge';
 import type { CareerContent } from '@/lib/career';
 
@@ -39,56 +40,15 @@ export default async function CareerPage() {
           </AnimatedContent>
         </section>
 
-        <section className="flex w-full flex-col gap-6 sm:gap-8">
-          {timeline.map((item, index) => {
-            const itemDelay = 0.2 + index * 0.08;
-            return (
-              <div
-                key={`${item.period}-${item.company}`}
-                className="flex w-full flex-col gap-4 sm:flex-row sm:gap-6"
-              >
-                <AnimatedContent
-                  animateOpacity
-                  reverse
-                  className="w-full text-left sm:w-1/4 sm:text-base"
-                  delay={itemDelay}
-                  direction="horizontal"
-                  distance={64}
-                  duration={0.9}
-                >
-                  <div className="text-foreground text-sm font-semibold sm:text-lg">
-                    {item.period}
-                  </div>
-                </AnimatedContent>
-                <AnimatedContent
-                  animateOpacity
-                  className="career-point border-l-border w-full border-l-4 pl-4 sm:w-3/4 sm:pl-5"
-                  data-active={item.isActive}
-                  delay={itemDelay}
-                  direction="horizontal"
-                  distance={64}
-                  duration={0.9}
-                >
-                  <div className="space-y-2">
-                    <div className="text-foreground text-lg leading-snug font-semibold sm:text-2xl">
-                      {item.role},{' '}
-                      <a
-                        className="text-primary underline-offset-4 hover:underline"
-                        href={item.companyUrl}
-                        rel="noreferrer noopener"
-                        target="_blank"
-                      >
-                        {item.company}
-                      </a>
-                    </div>
-                    <p className="text-muted-foreground text-sm leading-relaxed sm:text-base">
-                      {item.description}
-                    </p>
-                  </div>
-                </AnimatedContent>
-              </div>
-            );
-          })}
+        <section className="flex w-full flex-col">
+          {timeline.map((item, index) => (
+            <CareerItem
+              key={`${item.period}-${item.company}`}
+              delay={0.2 + index * 0.08}
+              isLast={index === timeline.length - 1}
+              item={item}
+            />
+          ))}
         </section>
       </div>
     </main>
