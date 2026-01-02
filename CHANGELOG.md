@@ -3,6 +3,8 @@
 ## 6: Career page
 
 - Added Career JSON schema/types and seeded timeline content.
+- Implemented the Career page layout and timeline rendering with badges, headers, and links.
+- Styled the Career timeline dot with active/inactive states.
 
 ---
 
