@@ -1,5 +1,9 @@
 # Changelog
 
+## 6: Career page
+
+- Added Career JSON schema/types and seeded timeline content.
+
 ---
 
 - Made home and skills JSON schemas required and removed page-level fallback checks.

@@ -1,4 +1,23 @@
 {
-  "title": "Career",
-  "description": "Share your experience timeline or current role here."
+  "badge": "Career",
+  "title": "My Career",
+  "description": "I am a high school student who has already completed my first internship and is open to new perspectives.",
+  "timeline": [
+    {
+      "period": "Sep 2023 - Present",
+      "role": "High School Student",
+      "company": "Warsaw Technical High School",
+      "companyUrl": "https://example.com",
+      "description": "Focused on building a strong foundation in computer science and participating in programming-focused coursework.",
+      "isActive": true
+    },
+    {
+      "period": "Jul 2024 - Aug 2024",
+      "role": "Full-stack Developer Intern",
+      "company": "Software Studio",
+      "companyUrl": "https://example.com",
+      "description": "Delivered responsive UI features and supported backend tasks, collaborating with a small team to ship weekly updates.",
+      "isActive": false
+    }
+  ]
 }
