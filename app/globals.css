@@ -220,6 +220,34 @@
   }
 }
 
+.career-rail {
+  position: relative;
+}
+
+.career-rail::before {
+  content: '';
+  position: absolute;
+  top: var(--career-dot-offset, 50%);
+  left: -8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background-color: var(--muted-foreground);
+  outline: 3px solid var(--background);
+  transform: translateY(-50%);
+}
+
+.career-rail[data-active='true']::before {
+  background-color: var(--primary);
+  box-shadow: 0 2px 5px 2px color-mix(in oklab, var(--primary) 35%, transparent);
+}
+
+.career-period {
+  position: relative;
+  top: var(--career-dot-offset, 0);
+  transform: translateY(-50%);
+}
+
 @layer utilities {
   .animate-skills-loop {
     animation: skills-loop 32s linear infinite;
