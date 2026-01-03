@@ -6,6 +6,8 @@
 
 - Added a contact data schema in `lib/contact.ts` with base64 email support.
 - Updated `data/contact.json` to the new contact schema and removed the redundant LinkedIn entry.
+- Rebuilt the Contact page layout with the shared container width, badge/title header, and two-column form/details structure.
+- Added dedicated contact detail components with icon-only actions, copy-to-clipboard, and animated CTA behavior.
 
 ---
 

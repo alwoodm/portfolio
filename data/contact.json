@@ -1,9 +1,10 @@
 {
   "badge": "Contact",
-  "title": "Let's build something together.",
+  "title": "Contact with me, whatever the topic is.",
+  "detailsIntro": "If you don't want to fill this form, you can always reach me here:",
   "email": {
     "label": "Email",
     "iconId": "mdi:email-outline",
-    "base64": "aGVsbG9AZXhhbXBsZS5jb20="
+    "base64": "Y29udGFjdEBhbGVrc2FuZGVyLmRldg=="
   }
 }

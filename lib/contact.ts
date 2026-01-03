@@ -7,5 +7,6 @@ export type ContactEmail = Readonly<{
 export type ContactContent = Readonly<{
   badge: string;
   title: string;
+  detailsIntro: string;
   email: ContactEmail;
 }>;
