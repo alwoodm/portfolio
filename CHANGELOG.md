@@ -6,6 +6,7 @@
 
 - Added a Projects data schema in `lib/projects.ts`.
 - Aligned `data/projects.json` to the new schema for badge/title/description and items.
+- Implemented the Projects page header layout with the shared container width and badge/title/description hierarchy.
 
 ---
 
