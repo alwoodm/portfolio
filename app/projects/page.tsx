@@ -1,21 +1,12 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-type Project = {
-  title: string;
-  description: string;
-};
+import type { ProjectsContent } from '@/lib/projects';
 
-type Projects = {
-  title: string;
-  description: string;
-  items: Project[];
-};
-
-async function getProjects(): Promise<Projects> {
+async function getProjects(): Promise<ProjectsContent> {
   const filePath = path.join(process.cwd(), 'data', 'projects.json');
   const fileBuffer = await fs.readFile(filePath);
-  return JSON.parse(fileBuffer.toString()) as Projects;
+  return JSON.parse(fileBuffer.toString()) as ProjectsContent;
 }
 
 export default async function ProjectsPage() {

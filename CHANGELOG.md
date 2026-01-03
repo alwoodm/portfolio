@@ -2,6 +2,13 @@
 
 ---
 
+## 7: Projects page groundwork
+
+- Added a Projects data schema in `lib/projects.ts`.
+- Aligned `data/projects.json` to the new schema for badge/title/description and items.
+
+---
+
 - Ensured the Career timeline dot renders above the rail.
 
 ---
