@@ -15,6 +15,9 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const SERVICE_ERROR =
   'Sorry, something went wrong. Please try again later or use another contact method.';
 
+const isDefined = <T>(value: T | null | undefined): value is T =>
+  value !== null && value !== undefined;
+
 export async function POST(request: Request) {
   let event: EmailReceivedEvent | null = null;
   try {
@@ -70,7 +73,7 @@ export async function POST(request: Request) {
       }
     }),
   );
-  const forwardAttachments = downloadResults.filter(Boolean);
+  const forwardAttachments = downloadResults.filter((attachment) => isDefined(attachment));
 
   const emailSubject = email.subject ?? event.data.subject ?? 'Forwarded email';
   const html = email.html ?? undefined;
