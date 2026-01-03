@@ -6,6 +6,7 @@ import { GridBackground } from '@/components/grid-background';
 import { Navbar } from '@/components/navbar';
 import { ThemeProvider } from '@/components/theme-provider';
 import { ModeToggle } from '@/components/theme-toggle';
+import { Toaster } from '@/components/ui/sonner';
 
 import type { Metadata } from 'next';
 
@@ -42,6 +43,7 @@ export default function RootLayout({
             <div className="pt-24 sm:pt-28">{children}</div>
             <Navbar />
             <ModeToggle />
+            <Toaster />
           </GridBackground>
         </ThemeProvider>
       </body>

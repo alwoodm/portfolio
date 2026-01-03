@@ -2,7 +2,23 @@
 
 ---
 
-## 7: Projects page groundwork
+## 8: Contact page
+
+- Added a contact data schema in `lib/contact.ts` with base64 email support.
+- Updated `data/contact.json` to the new contact schema and removed the redundant LinkedIn entry.
+- Rebuilt the Contact page layout with the shared container width, badge/title header, and two-column form/details structure.
+- Added dedicated contact detail components with icon-only actions, copy-to-clipboard, and animated CTA behavior.
+- Added Resend-backed contact form endpoint in `app/api/contact/route.ts` with server-side validation and email payloads.
+- Wired the contact form to POST submissions, disable the button while sending, reset on success, and show toast feedback.
+- Switched client-side validation to native HTML constraints and removed inline status text.
+- Added Resend configuration placeholders to `.env.example` and initialized toast support in the app layout.
+- Added a Resend inbound webhook that forwards received emails when `RESEND_FORWARD_TO` is configured.
+- Animated the contact form submit button with loading, success/error states, and auto-reset.
+- Deferred Resend client initialization to runtime to avoid build failures when env vars are missing.
+
+---
+
+## 7: Projects page
 
 - Added a Projects data schema in `lib/projects.ts`.
 - Aligned `data/projects.json` to the new schema for badge/title/description and items.
@@ -94,7 +110,6 @@
 - Restored light/dark theme tokens and synced the grid colors to the active theme.
 - Matched the header height to 72px to align the hero layout with `min-h-[calc(100vh-72px)]`.
 - Moved page content into JSON data files (`data/home.json`, `data/about.json`, `data/contact.json`, `data/projects.json`, `data/skills.json`) and wired pages to read them.
-- Added About, Projects, Skills, and Contact pages with minimal layouts driven by JSON content.
 - Replaced the theme dropdown with a fixed, animated round toggle button.
 - Replaced the grid background implementation with a reusable component and larger grid size; added an optional fade overlay.
 - Added the Dock component and fixed lint issues (renamed to `components/dock.tsx`, updated imports, prop typing, and dependencies).
