@@ -7,7 +7,6 @@ type ContactPayload = Readonly<{
   message: string;
 }>;
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const SERVICE_ERROR =
   'Sorry, something went wrong. Please try again later or use another contact method.';
 
@@ -53,6 +52,7 @@ export async function POST(request: Request) {
   const safeSubject = escapeHtml(payload.subject);
   const safeMessage = escapeHtml(payload.message).replaceAll('\n', '<br />');
 
+  const resend = new Resend(apiKey);
   const { data, error } = await resend.emails.send({
     from: fromEmail,
     to: toEmail,

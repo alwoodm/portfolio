@@ -11,7 +11,6 @@ type EmailReceivedEvent = Readonly<{
   };
 }>;
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const SERVICE_ERROR =
   'Sorry, something went wrong. Please try again later or use another contact method.';
 
@@ -41,6 +40,7 @@ export async function POST(request: Request) {
     return Response.json({ error: SERVICE_ERROR }, { status: 500 });
   }
 
+  const resend = new Resend(apiKey);
   const receivingEmailResult = await resend.emails.receiving.get(event.data.email_id);
   const { data: email, error: emailError } = receivingEmailResult;
 
