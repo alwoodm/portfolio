@@ -1,14 +1,34 @@
 {
-  "title": "Projects",
+  "badge": "Projects",
+  "title": "My Projects",
   "description": "A few selected projects and experiments.",
   "items": [
     {
-      "title": "Project One",
-      "description": "Short description for the first project."
+      "title": "Personal Portfolio",
+      "description": "The portfolio you are viewing now, built with a clean data-driven structure and subtle motion.",
+      "tags": ["Next.js", "TypeScript", "Tailwind", "Design System"],
+      "link": "https://example.com/portfolio",
+      "isLive": true
     },
     {
-      "title": "Project Two",
-      "description": "Short description for the second project."
+      "title": "Portfolio Dashboard",
+      "description": "Upcoming dashboard for managing projects, content, and deployment status across the portfolio.",
+      "tags": ["Dashboard", "Next.js", "UI", "Analytics"],
+      "isLive": false
+    },
+    {
+      "title": "Open Source UI Kit",
+      "description": "A reusable component library focused on accessible, consistent interface building blocks.",
+      "tags": ["Components", "Accessibility", "UI", "Docs"],
+      "link": "https://example.com/ui-kit",
+      "isLive": true
+    },
+    {
+      "title": "API Workspace",
+      "description": "Tooling for building, testing, and documenting REST and GraphQL APIs in one place.",
+      "tags": ["API", "Tooling", "Full Stack", "DX"],
+      "link": "https://example.com/api-workspace",
+      "isLive": true
     }
   ]
 }

@@ -1,38 +1,62 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-type Project = {
-  title: string;
-  description: string;
-};
+import { Layers } from 'lucide-react';
 
-type Projects = {
-  title: string;
-  description: string;
-  items: Project[];
-};
+import AnimatedContent from '@/components/animation/animated-content';
+import { ProjectCard } from '@/components/project-card';
+import { Badge } from '@/components/ui/badge';
+import type { ProjectsContent } from '@/lib/projects';
 
-async function getProjects(): Promise<Projects> {
+async function getProjects(): Promise<ProjectsContent> {
   const filePath = path.join(process.cwd(), 'data', 'projects.json');
   const fileBuffer = await fs.readFile(filePath);
-  return JSON.parse(fileBuffer.toString()) as Projects;
+  return JSON.parse(fileBuffer.toString()) as ProjectsContent;
 }
 
 export default async function ProjectsPage() {
   const projects = await getProjects();
 
   return (
-    <main className="mx-auto w-full max-w-3xl px-6 py-12">
-      <h1 className="text-foreground text-3xl font-semibold">{projects.title}</h1>
-      <p className="text-muted-foreground mt-4">{projects.description}</p>
-      <ul className="mt-8 space-y-6">
-        {projects.items.map((project) => (
-          <li key={project.title} className="border-border rounded-md border p-4">
-            <h2 className="text-foreground text-xl font-semibold">{project.title}</h2>
-            <p className="text-muted-foreground mt-2">{project.description}</p>
-          </li>
-        ))}
-      </ul>
+    <main className="w-full px-6 pt-8 pb-16 sm:px-10 lg:pb-20">
+      <div className="mx-auto w-full space-y-10 sm:space-y-12 md:w-[70%]">
+        <section className="w-full">
+          <AnimatedContent animateOpacity className="w-full" distance={32} duration={0.9}>
+            <div className="flex flex-col items-start gap-4 text-left">
+              <Badge className="gap-1.5" variant="secondary">
+                <Layers className="h-4 w-4" />
+                {projects.badge}
+              </Badge>
+              <div className="space-y-3">
+                <h1 className="text-primary text-3xl leading-tight font-semibold sm:text-4xl lg:text-5xl">
+                  {projects.title}
+                </h1>
+                <p className="text-muted-foreground text-base leading-relaxed sm:text-lg">
+                  {projects.description}
+                </p>
+              </div>
+            </div>
+          </AnimatedContent>
+        </section>
+
+        <section className="w-full">
+          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {projects.items.map((project, index) => (
+              <li key={project.title}>
+                <AnimatedContent
+                  animateOpacity
+                  className="h-full"
+                  delay={0.12 + index * 0.08}
+                  distance={28}
+                  duration={0.7}
+                >
+                  <ProjectCard project={project} />
+                </AnimatedContent>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
     </main>
   );
 }

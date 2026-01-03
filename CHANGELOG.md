@@ -2,6 +2,15 @@
 
 ---
 
+## 7: Projects page groundwork
+
+- Added a Projects data schema in `lib/projects.ts`.
+- Aligned `data/projects.json` to the new schema for badge/title/description and items.
+- Implemented the Projects page header layout with the shared container width and badge/title/description hierarchy.
+- Added a dedicated Projects card component with CTA states, tags, and hover treatments.
+
+---
+
 - Ensured the Career timeline dot renders above the rail.
 
 ---
