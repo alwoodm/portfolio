@@ -226,6 +226,7 @@
 
 .career-rail::before {
   content: '';
+  display: block;
   position: absolute;
   top: var(--career-dot-offset, 50%);
   left: -8px;
@@ -235,6 +236,7 @@
   background-color: var(--muted-foreground);
   outline: 3px solid var(--background);
   transform: translateY(-50%);
+  z-index: 1;
 }
 
 .career-rail[data-active='true']::before {

@@ -1,5 +1,11 @@
 # Changelog
 
+---
+
+- Ensured the Career timeline dot renders above the rail.
+
+---
+
 ## 6: Career page
 
 - Added Career JSON schema/types and seeded timeline content.
