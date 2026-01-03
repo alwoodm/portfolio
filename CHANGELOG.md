@@ -2,6 +2,13 @@
 
 ---
 
+## 8: Contact page groundwork
+
+- Added a contact data schema in `lib/contact.ts` with base64 email support.
+- Updated `data/contact.json` to the new contact schema and removed the redundant LinkedIn entry.
+
+---
+
 ## 7: Projects page groundwork
 
 - Added a Projects data schema in `lib/projects.ts`.

@@ -1,4 +1,9 @@
 {
-  "title": "Contact",
-  "description": "Add your contact details here."
+  "badge": "Contact",
+  "title": "Let's build something together.",
+  "email": {
+    "label": "Email",
+    "iconId": "mdi:email-outline",
+    "base64": "aGVsbG9AZXhhbXBsZS5jb20="
+  }
 }
