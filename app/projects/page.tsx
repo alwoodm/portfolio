@@ -4,6 +4,7 @@ import path from 'node:path';
 import { Layers } from 'lucide-react';
 
 import AnimatedContent from '@/components/animation/animated-content';
+import { ProjectCard } from '@/components/project-card';
 import { Badge } from '@/components/ui/badge';
 import type { ProjectsContent } from '@/lib/projects';
 
@@ -38,12 +39,19 @@ export default async function ProjectsPage() {
           </AnimatedContent>
         </section>
 
-        <section className="flex w-full flex-col">
-          <ul className="space-y-6">
-            {projects.items.map((project) => (
-              <li key={project.title} className="border-border rounded-md border p-4">
-                <h2 className="text-foreground text-xl font-semibold">{project.title}</h2>
-                <p className="text-muted-foreground mt-2">{project.description}</p>
+        <section className="w-full">
+          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {projects.items.map((project, index) => (
+              <li key={project.title}>
+                <AnimatedContent
+                  animateOpacity
+                  className="h-full"
+                  delay={0.12 + index * 0.08}
+                  distance={28}
+                  duration={0.7}
+                >
+                  <ProjectCard project={project} />
+                </AnimatedContent>
               </li>
             ))}
           </ul>
