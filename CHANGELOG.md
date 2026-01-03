@@ -12,6 +12,7 @@
 - Wired the contact form to POST submissions, disable the button while sending, reset on success, and show toast feedback.
 - Switched client-side validation to native HTML constraints and removed inline status text.
 - Added Resend configuration placeholders to `.env.example` and initialized toast support in the app layout.
+- Added a Resend inbound webhook that forwards received emails when `RESEND_FORWARD_TO` is configured.
 
 ---
 

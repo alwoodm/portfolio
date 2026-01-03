@@ -57,7 +57,7 @@ export async function POST(request: Request) {
     from: fromEmail,
     to: toEmail,
     replyTo: payload.email,
-    subject: `Portfolio-form: ${payload.subject}`,
+    subject: `${payload.subject}`,
     text: `Name: ${payload.name}\nEmail: ${payload.email}\n\n${payload.message}`,
     html: `
       <div style="font-family: Arial, sans-serif; color: #0f172a; line-height: 1.6;">
