@@ -1,15 +1,12 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-import { ArrowUpRight, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 import AnimatedContent from '@/components/animation/animated-content';
 import { ContactDetails } from '@/components/contact-details';
+import { ContactForm } from '@/components/contact-form';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import type { ContactContent } from '@/lib/contact';
 import type { HomeContent } from '@/lib/home';
 
@@ -47,56 +44,7 @@ export default async function ContactPage() {
 
         <section className="grid w-full items-start gap-8 md:grid-cols-[minmax(0,1fr)_260px] lg:grid-cols-[minmax(0,1fr)_320px]">
           <AnimatedContent animateOpacity className="w-full" distance={40} duration={0.9}>
-            <form className="border-border/70 bg-card/90 w-full space-y-4 rounded-2xl border p-4 shadow-sm md:max-w-[520px] md:justify-self-start lg:max-w-[560px]">
-              <div className="grid gap-3 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <Label htmlFor="contact-name">Name</Label>
-                  <Input
-                    required
-                    autoComplete="name"
-                    id="contact-name"
-                    name="name"
-                    placeholder="Your name"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="contact-email">Email</Label>
-                  <Input
-                    required
-                    autoComplete="email"
-                    id="contact-email"
-                    name="email"
-                    placeholder="you@example.com"
-                    type="email"
-                  />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="contact-subject">Subject</Label>
-                <Input
-                  required
-                  id="contact-subject"
-                  name="subject"
-                  placeholder="Let's collaborate"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="contact-message">Message</Label>
-                <Textarea
-                  required
-                  id="contact-message"
-                  name="message"
-                  placeholder="Tell me about your idea."
-                  rows={6}
-                />
-              </div>
-              <Button className="group gap-0" type="submit">
-                Send message
-                <span className="inline-flex max-w-0 overflow-hidden opacity-0 transition-all duration-200 group-hover:ml-1 group-hover:max-w-[1rem] group-hover:opacity-100">
-                  <ArrowUpRight className="h-4 w-4" />
-                </span>
-              </Button>
-            </form>
+            <ContactForm />
           </AnimatedContent>
 
           <AnimatedContent
