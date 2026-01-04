@@ -13,6 +13,7 @@
 - Mounted `data/` in Docker and added a startup step to ensure `ADMIN_TOKEN` exists.
 - Logged content revalidation and email send/forward events for production visibility.
 - Added a Docker entrypoint to fix volume permissions before runtime writes.
+- Ensured `.next` is owned by the runtime user to allow ISR cache writes in Docker.
 
 ---
 
