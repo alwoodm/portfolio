@@ -9,6 +9,7 @@
 - Triggered on-demand revalidation for the updated route after writes.
 - Forced static rendering on core pages to enable on-demand ISR.
 - Added an admin token generator script and documented usage in the README.
+- Added `/github` and `/linkedin` routes that redirect to the latest URLs in `data/home.json`.
 
 ---
 
