@@ -8,6 +8,7 @@
 - Enforced a whitelist of content files and token-protected `POST` writes via `x-admin-token`.
 - Triggered on-demand revalidation for the updated route after writes.
 - Forced static rendering on core pages to enable on-demand ISR.
+- Added an admin token generator script and documented usage in the README.
 
 ---
 

@@ -63,3 +63,13 @@ Then build and run with Docker Compose:
 ```bash
 docker compose up --build
 ```
+
+### 🔐 Admin Token (Content Updates)
+
+Generate a strong admin token for content update requests:
+
+```bash
+node scripts/generate-admin-token.mjs
+```
+
+This creates or updates `.env` with `ADMIN_TOKEN=...`. Use the token as the `x-admin-token` header when making `POST /api/content/<file>` requests.
