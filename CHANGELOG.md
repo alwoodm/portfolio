@@ -2,11 +2,12 @@
 
 ---
 
-## 9: Runtime content updates (phase 1)
+## 9: Runtime content updates
 
 - Added `app/api/content/[file]/route.ts` to read and update JSON content files by name.
 - Enforced a whitelist of content files and token-protected `POST` writes via `x-admin-token`.
 - Triggered on-demand revalidation for the updated route after writes.
+- Forced static rendering on core pages to enable on-demand ISR.
 
 ---
 

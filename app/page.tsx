@@ -18,6 +18,8 @@ type HeroSocialLink = {
   icon: ReactNode;
 };
 
+export const dynamic = 'force-static';
+
 async function getHomeContent(): Promise<HomeContent> {
   const filePath = path.join(process.cwd(), 'data', 'home.json');
   const fileBuffer = await fs.readFile(filePath);

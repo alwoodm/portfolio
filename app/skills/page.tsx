@@ -8,6 +8,8 @@ import { SkillsSection } from '@/components/skills-section';
 import { Badge } from '@/components/ui/badge';
 import type { SkillsContent } from '@/lib/skills';
 
+export const dynamic = 'force-static';
+
 async function getSkills(): Promise<SkillsContent> {
   const filePath = path.join(process.cwd(), 'data', 'skills.json');
   const fileBuffer = await fs.readFile(filePath);

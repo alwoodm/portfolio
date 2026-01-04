@@ -10,6 +10,8 @@ import { InlineMarkdown } from '@/components/inline-markdown';
 import { Badge } from '@/components/ui/badge';
 import type { AboutContent } from '@/lib/about';
 
+export const dynamic = 'force-static';
+
 async function getAboutContent(): Promise<AboutContent> {
   const filePath = path.join(process.cwd(), 'data', 'about.json');
   const fileBuffer = await fs.readFile(filePath);

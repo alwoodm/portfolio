@@ -8,6 +8,8 @@ import { CareerItem } from '@/components/career-item';
 import { Badge } from '@/components/ui/badge';
 import type { CareerContent } from '@/lib/career';
 
+export const dynamic = 'force-static';
+
 async function getCareerContent(): Promise<CareerContent> {
   const filePath = path.join(process.cwd(), 'data', 'career.json');
   const fileBuffer = await fs.readFile(filePath);
