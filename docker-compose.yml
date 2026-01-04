@@ -10,4 +10,7 @@ services:
       - HOSTNAME=0.0.0.0
     ports:
       - '${PORT:-3000}:3000'
+    volumes:
+      - ./.env:/app/.env
+      - ./data:/app/data
     restart: unless-stopped

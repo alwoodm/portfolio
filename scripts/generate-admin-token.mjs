@@ -3,8 +3,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const environmentPath = path.join(process.cwd(), '.env');
-const token = randomBytes(48).toString('base64url');
-const entry = `ADMIN_TOKEN=${token}`;
+const onlyIfMissing = process.argv.includes('--if-missing');
 
 const readEnvironment = async () => {
   try {
@@ -17,7 +16,8 @@ const readEnvironment = async () => {
   }
 };
 
-const updateEnvironment = (content) => {
+const updateEnvironment = (content, tokenValue) => {
+  const entry = `ADMIN_TOKEN=${tokenValue}`;
   if (!content) {
     return `${entry}\n`;
   }
@@ -34,11 +34,24 @@ const updateEnvironment = (content) => {
   return nextContent;
 };
 
+const parseExistingToken = (content) => {
+  const match = content.match(/^ADMIN_TOKEN=(.*)$/m);
+  return match ? match[1] : undefined;
+};
+
 try {
   const current = await readEnvironment();
-  const updated = updateEnvironment(current);
-  await fs.writeFile(environmentPath, updated, 'utf8');
-  console.info('Updated .env with a new ADMIN_TOKEN.');
+  const existingToken = parseExistingToken(current);
+
+  if (onlyIfMissing && existingToken) {
+    console.warn('ADMIN_TOKEN already set in .env. Skipping.');
+  } else {
+    const token =
+      (onlyIfMissing && process.env.ADMIN_TOKEN) || randomBytes(48).toString('base64url');
+    const updated = updateEnvironment(current, token);
+    await fs.writeFile(environmentPath, updated, 'utf8');
+    console.warn('Updated .env with a new ADMIN_TOKEN.');
+  }
 } catch (error) {
   console.error('Failed to update ADMIN_TOKEN.', error);
   process.exitCode = 1;

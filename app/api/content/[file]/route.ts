@@ -57,6 +57,7 @@ export async function POST(request: NextRequest, context: { params: Promise<{ fi
 
   const expectedToken = process.env.ADMIN_TOKEN ?? '';
   if (!expectedToken) {
+    console.error('[content] ADMIN_TOKEN missing.');
     return Response.json({ error: SERVICE_ERROR }, { status: 500 });
   }
 
@@ -84,14 +85,23 @@ export async function POST(request: NextRequest, context: { params: Promise<{ fi
     const filePath = getFilePath(file);
     const serialized = `${JSON.stringify(payload, null, 2)}\n`;
     await fs.writeFile(filePath, serialized, 'utf8');
-  } catch {
+  } catch (error) {
+    console.error('[content] Failed to write JSON file.', error);
     return Response.json({ error: SERVICE_ERROR }, { status: 500 });
   }
 
   const revalidateTarget = REVALIDATE_PATHS[file];
+  let revalidated = false;
   if (revalidateTarget) {
-    revalidatePath(revalidateTarget);
+    try {
+      revalidatePath(revalidateTarget);
+      revalidated = true;
+    } catch (error) {
+      console.error('[content] Failed to revalidate path.', error);
+    }
   }
 
-  return Response.json({ ok: true });
+  console.warn(`[content] Updated ${file}.json; revalidated ${revalidateTarget ?? 'unknown'}.`);
+
+  return Response.json({ ok: true, revalidated });
 }
