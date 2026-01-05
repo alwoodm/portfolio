@@ -2,6 +2,12 @@
 
 ---
 
+## 10: Global ISR revalidation
+
+- Revalidated all page routes after any content JSON update to keep cross-page dependencies in sync.
+
+---
+
 ## 9: Runtime content updates
 
 - Added `app/api/content/[file]/route.ts` to read and update JSON content files by name.

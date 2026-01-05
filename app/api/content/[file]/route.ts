@@ -90,18 +90,18 @@ export async function POST(request: NextRequest, context: { params: Promise<{ fi
     return Response.json({ error: SERVICE_ERROR }, { status: 500 });
   }
 
-  const revalidateTarget = REVALIDATE_PATHS[file];
+  const revalidateTargets = Object.values(REVALIDATE_PATHS);
   let revalidated = false;
-  if (revalidateTarget) {
+  for (const target of revalidateTargets) {
     try {
-      revalidatePath(revalidateTarget);
+      revalidatePath(target);
       revalidated = true;
     } catch (error) {
-      console.error('[content] Failed to revalidate path.', error);
+      console.error(`[content] Failed to revalidate ${target}.`, error);
     }
   }
 
-  console.warn(`[content] Updated ${file}.json; revalidated ${revalidateTarget ?? 'unknown'}.`);
+  console.warn(`[content] Updated ${file}.json; revalidated ${revalidateTargets.length} paths.`);
 
-  return Response.json({ ok: true, revalidated });
+  return Response.json({ ok: true, revalidated, revalidateTargets });
 }
