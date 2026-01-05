@@ -63,3 +63,18 @@ Then build and run with Docker Compose:
 ```bash
 docker compose up --build
 ```
+
+The `data/` directory is mounted into the container so content updates persist across restarts.
+The container startup also runs `node scripts/generate-admin-token.mjs --if-missing` to ensure
+`ADMIN_TOKEN` exists in `.env`.
+The entrypoint also normalizes ownership of `/app/data` and `/app/.env` so runtime writes succeed.
+
+### 🔐 Admin Token (Content Updates)
+
+Generate a strong admin token for content update requests:
+
+```bash
+node scripts/generate-admin-token.mjs
+```
+
+This creates or updates `.env` with `ADMIN_TOKEN=...`. Use the token as the `x-admin-token` header when making `POST /api/content/<file>` requests.

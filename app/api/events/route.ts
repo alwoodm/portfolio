@@ -31,12 +31,14 @@ export async function POST(request: Request) {
 
   const forwardTo = process.env.RESEND_FORWARD_TO ?? '';
   if (!forwardTo) {
+    console.warn('[inbound] forward skipped: RESEND_FORWARD_TO not set.');
     return Response.json({ ok: true, skipped: true });
   }
 
   const apiKey = process.env.RESEND_API_KEY ?? '';
   const fromEmail = process.env.RESEND_FROM_EMAIL ?? '';
   if (!apiKey || !fromEmail) {
+    console.error('[inbound] forward failed: missing Resend configuration.');
     return Response.json({ error: SERVICE_ERROR }, { status: 500 });
   }
 
@@ -45,6 +47,7 @@ export async function POST(request: Request) {
   const { data: email, error: emailError } = receivingEmailResult;
 
   if (emailError || !email) {
+    console.error('[inbound] failed to load inbound email.', emailError);
     return Response.json({ error: SERVICE_ERROR }, { status: 500 });
   }
 
@@ -91,8 +94,15 @@ export async function POST(request: Request) {
   });
 
   if (error) {
+    console.error('[inbound] forward failed', error);
     return Response.json({ error: SERVICE_ERROR }, { status: 500 });
   }
+
+  console.warn('[inbound] forwarded email', {
+    id: data?.id ?? null,
+    sourceId: event.data.email_id,
+    attachments: forwardAttachments.length,
+  });
 
   return Response.json({ id: data?.id ?? null });
 }

@@ -10,6 +10,8 @@ import { Badge } from '@/components/ui/badge';
 import type { ContactContent } from '@/lib/contact';
 import type { HomeContent } from '@/lib/home';
 
+export const dynamic = 'force-static';
+
 async function getContactContent(): Promise<ContactContent> {
   const filePath = path.join(process.cwd(), 'data', 'contact.json');
   const fileBuffer = await fs.readFile(filePath);

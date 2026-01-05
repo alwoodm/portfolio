@@ -86,8 +86,14 @@ export async function POST(request: Request) {
   });
 
   if (error) {
+    console.error('[contact] send failed', error);
     return Response.json({ error: SERVICE_ERROR }, { status: 500 });
   }
+
+  console.warn('[contact] sent message', {
+    id: data?.id ?? null,
+    replyTo: payload.email,
+  });
 
   return Response.json({ id: data?.id ?? null });
 }

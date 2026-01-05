@@ -8,6 +8,8 @@ import { ProjectCard } from '@/components/project-card';
 import { Badge } from '@/components/ui/badge';
 import type { ProjectsContent } from '@/lib/projects';
 
+export const dynamic = 'force-static';
+
 async function getProjects(): Promise<ProjectsContent> {
   const filePath = path.join(process.cwd(), 'data', 'projects.json');
   const fileBuffer = await fs.readFile(filePath);

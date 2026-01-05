@@ -2,6 +2,21 @@
 
 ---
 
+## 9: Runtime content updates
+
+- Added `app/api/content/[file]/route.ts` to read and update JSON content files by name.
+- Enforced a whitelist of content files and token-protected `POST` writes via `x-admin-token`.
+- Triggered on-demand revalidation for the updated route after writes.
+- Forced static rendering on core pages to enable on-demand ISR.
+- Added an admin token generator script and documented usage in the README.
+- Added `/github` and `/linkedin` routes that redirect to the latest URLs in `data/home.json`.
+- Mounted `data/` in Docker and added a startup step to ensure `ADMIN_TOKEN` exists.
+- Logged content revalidation and email send/forward events for production visibility.
+- Added a Docker entrypoint to fix volume permissions before runtime writes.
+- Ensured `.next` is owned by the runtime user to allow ISR cache writes in Docker.
+
+---
+
 ## 8: Contact page
 
 - Added a contact data schema in `lib/contact.ts` with base64 email support.
