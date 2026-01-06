@@ -6,7 +6,10 @@ import { Sparkles } from 'lucide-react';
 import AnimatedContent from '@/components/animation/animated-content';
 import { SkillsSection } from '@/components/skills-section';
 import { Badge } from '@/components/ui/badge';
+import { buildPageMetadata, getSeoContent } from '@/lib/seo';
 import type { SkillsContent } from '@/lib/skills';
+
+import type { Metadata } from 'next';
 
 export const dynamic = 'force-static';
 
@@ -14,6 +17,16 @@ async function getSkills(): Promise<SkillsContent> {
   const filePath = path.join(process.cwd(), 'data', 'skills.json');
   const fileBuffer = await fs.readFile(filePath);
   return JSON.parse(fileBuffer.toString()) as SkillsContent;
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const [content, seo] = await Promise.all([getSkills(), getSeoContent()]);
+
+  return buildPageMetadata(seo, {
+    title: content.title,
+    description: content.description,
+    path: '/skills',
+  });
 }
 
 export default async function SkillsPage() {

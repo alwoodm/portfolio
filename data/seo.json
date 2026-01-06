@@ -1,0 +1,13 @@
+{
+  "siteName": "Aleksander Lis",
+  "titleTemplate": "%s | Aleksander Lis",
+  "defaultTitle": "Aleksander Lis",
+  "defaultDescription": "Software Engineer and frontend-focused builder crafting clean, responsive web experiences.",
+  "openGraph": {
+    "type": "website",
+    "locale": "en_US"
+  },
+  "twitter": {
+    "card": "summary_large_image"
+  }
+}

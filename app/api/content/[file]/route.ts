@@ -9,7 +9,7 @@ export const runtime = 'nodejs';
 
 const SERVICE_ERROR = 'Sorry, something went wrong. Please try again later.';
 
-const ALLOWED_FILES = new Set(['home', 'about', 'skills', 'career', 'projects', 'contact']);
+const ALLOWED_FILES = new Set(['home', 'about', 'skills', 'career', 'projects', 'contact', 'seo']);
 
 const REVALIDATE_PATHS: Record<string, string> = {
   home: '/',

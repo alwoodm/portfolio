@@ -2,8 +2,13 @@
 
 ---
 
-## 10: Global ISR revalidation
+## 10: SEO and final improvements
 
+- Added `data/seo.json` plus `lib/seo.ts` helpers for global defaults and per-page metadata.
+- Wired `generateMetadata` on core pages with canonical, Open Graph, and Twitter tags.
+- Added JSON-LD for the Person + WebSite schema in the root layout and an ItemList schema on Projects.
+- Configured `next-sitemap` with a `postbuild` script to generate sitemap and robots.txt.
+- Allowed `seo.json` reads/updates through the content API.
 - Revalidated all page routes after any content JSON update to keep cross-page dependencies in sync.
 
 ---
