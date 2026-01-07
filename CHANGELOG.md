@@ -9,6 +9,7 @@
 - Added JSON-LD for the Person + WebSite schema in the root layout and an ItemList schema on Projects.
 - Configured `next-sitemap` with a `postbuild` script to generate sitemap and robots.txt.
 - Allowed `seo.json` reads/updates through the content API.
+- Added social preview image metadata (Open Graph/Twitter) using `public/og.png`.
 - Revalidated all page routes after any content JSON update to keep cross-page dependencies in sync.
 
 ---

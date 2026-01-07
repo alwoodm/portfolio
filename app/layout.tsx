@@ -11,7 +11,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { ModeToggle } from '@/components/theme-toggle';
 import { Toaster } from '@/components/ui/sonner';
 import type { HomeContent } from '@/lib/home';
-import { getSeoContent, getSiteUrl } from '@/lib/seo';
+import { getOgImageUrl, getSeoContent, getSiteUrl } from '@/lib/seo';
 
 import type { Metadata } from 'next';
 
@@ -34,6 +34,7 @@ const getHomeContent = async (): Promise<HomeContent> => {
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await getSeoContent();
   const siteUrl = getSiteUrl();
+  const ogImageUrl = getOgImageUrl(siteUrl);
 
   return {
     metadataBase: new URL(siteUrl),
@@ -52,11 +53,20 @@ export async function generateMetadata(): Promise<Metadata> {
       url: siteUrl,
       title: seo.defaultTitle,
       description: seo.defaultDescription,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: seo.siteName,
+        },
+      ],
     },
     twitter: {
       card: seo.twitter.card,
       title: seo.defaultTitle,
       description: seo.defaultDescription,
+      images: [ogImageUrl],
     },
   };
 }
