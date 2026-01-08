@@ -49,7 +49,9 @@ export default async function SkillsPage() {
               <Sparkles className="h-4 w-4" />
               {skills.badge}
             </Badge>
-            <h1 className="text-foreground text-3xl font-semibold sm:text-4xl">{skills.title}</h1>
+            <h1 className="text-primary text-3xl leading-tight font-semibold sm:text-4xl lg:text-5xl">
+              {skills.title}
+            </h1>
             <p className="text-muted-foreground max-w-2xl text-base sm:text-lg">
               {skills.description}
             </p>
