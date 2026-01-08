@@ -195,6 +195,22 @@
     @apply bg-background text-foreground overflow-x-hidden transition-colors duration-300 motion-reduce:transition-none;
     letter-spacing: var(--tracking-normal);
   }
+  button,
+  [role='button'],
+  a[href],
+  input[type='button'],
+  input[type='submit'],
+  input[type='reset'] {
+    cursor: pointer;
+  }
+  button:disabled,
+  [role='button'][aria-disabled='true'],
+  a[aria-disabled='true'],
+  input:disabled,
+  textarea:disabled,
+  select:disabled {
+    cursor: not-allowed;
+  }
 }
 
 @keyframes pulse-ring {
