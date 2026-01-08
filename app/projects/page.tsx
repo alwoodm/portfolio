@@ -7,6 +7,9 @@ import AnimatedContent from '@/components/animation/animated-content';
 import { ProjectCard } from '@/components/project-card';
 import { Badge } from '@/components/ui/badge';
 import type { ProjectsContent } from '@/lib/projects';
+import { buildPageMetadata, getSeoContent, getSiteUrl } from '@/lib/seo';
+
+import type { Metadata } from 'next';
 
 export const dynamic = 'force-static';
 
@@ -16,11 +19,41 @@ async function getProjects(): Promise<ProjectsContent> {
   return JSON.parse(fileBuffer.toString()) as ProjectsContent;
 }
 
+export async function generateMetadata(): Promise<Metadata> {
+  const [content, seo] = await Promise.all([getProjects(), getSeoContent()]);
+
+  return buildPageMetadata(seo, {
+    title: content.title,
+    description: content.description,
+    path: '/projects',
+  });
+}
+
 export default async function ProjectsPage() {
   const projects = await getProjects();
+  const siteUrl = getSiteUrl();
+  const projectJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: projects.items.map((project, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'CreativeWork',
+        name: project.title,
+        description: project.description,
+        url: project.link ?? `${siteUrl}/projects`,
+        keywords: project.tags.join(', '),
+      },
+    })),
+  };
 
   return (
     <main className="w-full px-6 pt-8 pb-16 sm:px-10 lg:pb-20">
+      <script
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd) }}
+        type="application/ld+json"
+      />
       <div className="mx-auto w-full space-y-10 sm:space-y-12 md:w-[70%]">
         <section className="w-full">
           <AnimatedContent animateOpacity className="w-full" distance={32} duration={0.9}>

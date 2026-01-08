@@ -9,6 +9,9 @@ import { ContactForm } from '@/components/contact-form';
 import { Badge } from '@/components/ui/badge';
 import type { ContactContent } from '@/lib/contact';
 import type { HomeContent } from '@/lib/home';
+import { buildPageMetadata, getSeoContent } from '@/lib/seo';
+
+import type { Metadata } from 'next';
 
 export const dynamic = 'force-static';
 
@@ -22,6 +25,16 @@ async function getHomeContent(): Promise<HomeContent> {
   const filePath = path.join(process.cwd(), 'data', 'home.json');
   const fileBuffer = await fs.readFile(filePath);
   return JSON.parse(fileBuffer.toString()) as HomeContent;
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const [content, seo] = await Promise.all([getContactContent(), getSeoContent()]);
+
+  return buildPageMetadata(seo, {
+    title: content.title,
+    description: content.detailsIntro,
+    path: '/contact',
+  });
 }
 
 export default async function ContactPage() {

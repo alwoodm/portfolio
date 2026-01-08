@@ -7,6 +7,9 @@ import AnimatedContent from '@/components/animation/animated-content';
 import { CareerItem } from '@/components/career-item';
 import { Badge } from '@/components/ui/badge';
 import type { CareerContent } from '@/lib/career';
+import { buildPageMetadata, getSeoContent } from '@/lib/seo';
+
+import type { Metadata } from 'next';
 
 export const dynamic = 'force-static';
 
@@ -14,6 +17,16 @@ async function getCareerContent(): Promise<CareerContent> {
   const filePath = path.join(process.cwd(), 'data', 'career.json');
   const fileBuffer = await fs.readFile(filePath);
   return JSON.parse(fileBuffer.toString()) as CareerContent;
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const [content, seo] = await Promise.all([getCareerContent(), getSeoContent()]);
+
+  return buildPageMetadata(seo, {
+    title: content.title,
+    description: content.description,
+    path: '/career',
+  });
 }
 
 export default async function CareerPage() {

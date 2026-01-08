@@ -31,7 +31,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </CardContent>
       <CardFooter className="pt-1">
         {isLive ? (
-          <Button asChild className="group gap-0" size="sm">
+          <Button asChild className="group gap-0 text-white" size="sm">
             <Link href={project.link ?? '#'} rel="noreferrer" target="_blank">
               Visit project
               <span className="inline-flex max-w-0 overflow-hidden opacity-0 transition-all duration-200 group-hover:ml-1 group-hover:max-w-[1rem] group-hover:opacity-100">
@@ -44,7 +44,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             aria-disabled="true"
             className={cn(
               buttonVariants({ size: 'sm', variant: 'outline' }),
-              'group border-border/60 bg-muted/60 text-muted-foreground hover:bg-muted/60 relative w-[7.5rem] cursor-not-allowed overflow-hidden shadow-none transition-[width] duration-200 group-hover:w-[10.5rem]',
+              'group border-border/60 bg-muted/60 text-muted-foreground hover:bg-muted/60 relative w-[8.5rem] cursor-not-allowed overflow-hidden shadow-none transition-[width] duration-200 group-hover:w-[9.75rem]',
             )}
           >
             <span className="flex h-full w-full items-center justify-center whitespace-nowrap transition-transform duration-200 group-hover:-translate-y-full">

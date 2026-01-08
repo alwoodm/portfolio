@@ -2,6 +2,24 @@
 
 ---
 
+## 10: SEO and final improvements
+
+- Added `data/seo.json` plus `lib/seo.ts` helpers for global defaults and per-page metadata.
+- Wired `generateMetadata` on core pages with canonical, Open Graph, and Twitter tags.
+- Added JSON-LD for the Person + WebSite schema in the root layout and an ItemList schema on Projects.
+- Configured `next-sitemap` with a `postbuild` script to generate sitemap and robots.txt.
+- Allowed `seo.json` reads/updates through the content API.
+- Added social preview image metadata (Open Graph/Twitter) using `public/og.png`.
+- Revalidated all page routes after any content JSON update to keep cross-page dependencies in sync.
+- Standardized pointer cursors for interactive elements and not-allowed cursors for disabled states.
+- Improved project CTA legibility in light mode and tightened the unavailable-button width so “Check back soon” fits cleanly.
+- Matched About inline emphasis colors (italic uses primary, bold strengthened) and aligned Skills heading color/size to primary section headers.
+- Redesigned `README.md` with the preview image, expanded overview, clearer setup/env guidance,
+  consolidated content/contact notes, and a license link.
+- Animated the theme toggle with a click-driven spin and stronger pulse-ring feedback.
+
+---
+
 ## 9: Runtime content updates
 
 - Added `app/api/content/[file]/route.ts` to read and update JSON content files by name.
