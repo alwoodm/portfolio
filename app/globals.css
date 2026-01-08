@@ -215,7 +215,7 @@
 
 @keyframes pulse-ring {
   0% {
-    opacity: 0.6;
+    opacity: 0.85;
     transform: scale(1);
   }
   70% {
@@ -223,7 +223,7 @@
   }
   100% {
     opacity: 0;
-    transform: scale(1.6);
+    transform: scale(1.85);
   }
 }
 

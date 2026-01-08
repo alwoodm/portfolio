@@ -16,6 +16,7 @@
 - Matched About inline emphasis colors (italic uses primary, bold strengthened) and aligned Skills heading color/size to primary section headers.
 - Redesigned `README.md` with the preview image, expanded overview, clearer setup/env guidance,
   consolidated content/contact notes, and a license link.
+- Animated the theme toggle with a click-driven spin and stronger pulse-ring feedback.
 
 ---
 
