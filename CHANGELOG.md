@@ -14,6 +14,8 @@
 - Standardized pointer cursors for interactive elements and not-allowed cursors for disabled states.
 - Improved project CTA legibility in light mode and tightened the unavailable-button width so “Check back soon” fits cleanly.
 - Matched About inline emphasis colors (italic uses primary, bold strengthened) and aligned Skills heading color/size to primary section headers.
+- Redesigned `README.md` with the preview image, expanded overview, clearer setup/env guidance,
+  consolidated content/contact notes, and a license link.
 
 ---
 
