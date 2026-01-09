@@ -1,39 +1,48 @@
+import { tokenizeInlineMarkdown } from '@/lib/markdown';
+
 import type { ReactNode } from 'react';
 
 type InlineMarkdownProps = Readonly<{
   text: string;
 }>;
 
-const MARKDOWN_PATTERN = /(\*\*[^*]+\*\*|\*[^*]+\*)/g;
-
 function renderInlineMarkdown(text: string): ReactNode[] {
-  if (!text) return [];
+  return tokenizeInlineMarkdown(text).map((token, index) => {
+    if (token.type === 'bold') {
+      return (
+        <strong key={`bold-${index}`} className="text-primary font-bold">
+          {token.value}
+        </strong>
+      );
+    }
 
-  return text
-    .split(MARKDOWN_PATTERN)
-    .filter(Boolean)
-    .map((part, index) => {
-      if (part.startsWith('**') && part.endsWith('**')) {
-        return (
-          <strong key={`bold-${index}`} className="text-primary font-bold">
-            {part.slice(2, -2)}
-          </strong>
-        );
-      }
+    if (token.type === 'italic') {
+      return (
+        <em
+          key={`italic-${index}`}
+          className="text-primary decoration-primary/40 italic underline decoration-2 underline-offset-4"
+        >
+          {token.value}
+        </em>
+      );
+    }
 
-      if (part.startsWith('*') && part.endsWith('*')) {
-        return (
-          <em
-            key={`italic-${index}`}
-            className="text-primary decoration-primary/40 italic underline decoration-2 underline-offset-4"
-          >
-            {part.slice(1, -1)}
-          </em>
-        );
-      }
+    if (token.type === 'link') {
+      return (
+        <a
+          key={`link-${index}`}
+          className="text-primary decoration-primary/40 underline decoration-2 underline-offset-4"
+          href={token.href}
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          {token.value}
+        </a>
+      );
+    }
 
-      return <span key={`text-${index}`}>{part}</span>;
-    });
+    return <span key={`text-${index}`}>{token.value}</span>;
+  });
 }
 
 export function InlineMarkdown({ text }: InlineMarkdownProps) {

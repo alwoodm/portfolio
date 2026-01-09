@@ -9,7 +9,7 @@ import { ContactForm } from '@/components/contact-form';
 import { Badge } from '@/components/ui/badge';
 import type { ContactContent } from '@/lib/contact';
 import type { HomeContent } from '@/lib/home';
-import { buildPageMetadata, getSeoContent } from '@/lib/seo';
+import { buildPageMetadata, getSeoContent, stripMarkdown } from '@/lib/seo';
 
 import type { Metadata } from 'next';
 
@@ -32,7 +32,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return buildPageMetadata(seo, {
     title: content.title,
-    description: content.detailsIntro,
+    description: stripMarkdown(content.detailsIntro),
     path: '/contact',
   });
 }

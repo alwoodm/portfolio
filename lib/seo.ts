@@ -1,6 +1,8 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
+import { stripInlineMarkdown } from '@/lib/markdown';
+
 import type { Metadata } from 'next';
 
 export type SeoContent = Readonly<{
@@ -36,8 +38,7 @@ export const getSeoContent = async (): Promise<SeoContent> => {
 
 export const getOgImageUrl = (siteUrl: string) => new URL(OG_IMAGE_PATH, siteUrl).toString();
 
-export const stripMarkdown = (value: string) =>
-  value.replaceAll(/\*\*(.+?)\*\*/g, '$1').replaceAll(/\*(.+?)\*/g, '$1');
+export const stripMarkdown = (value: string) => stripInlineMarkdown(value);
 
 export const buildPageMetadata = (seo: SeoContent, page: PageSeo): Metadata => {
   const siteUrl = getSiteUrl();

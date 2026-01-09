@@ -4,9 +4,10 @@ import path from 'node:path';
 import { Sparkles } from 'lucide-react';
 
 import AnimatedContent from '@/components/animation/animated-content';
+import { InlineMarkdown } from '@/components/inline-markdown';
 import { SkillsSection } from '@/components/skills-section';
 import { Badge } from '@/components/ui/badge';
-import { buildPageMetadata, getSeoContent } from '@/lib/seo';
+import { buildPageMetadata, getSeoContent, stripMarkdown } from '@/lib/seo';
 import type { SkillsContent } from '@/lib/skills';
 
 import type { Metadata } from 'next';
@@ -24,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return buildPageMetadata(seo, {
     title: content.title,
-    description: content.description,
+    description: stripMarkdown(content.description),
     path: '/skills',
   });
 }
@@ -53,7 +54,7 @@ export default async function SkillsPage() {
               {skills.title}
             </h1>
             <p className="text-muted-foreground max-w-2xl text-base sm:text-lg">
-              {skills.description}
+              <InlineMarkdown text={skills.description} />
             </p>
           </div>
         </AnimatedContent>

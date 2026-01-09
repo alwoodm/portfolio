@@ -2,6 +2,11 @@
 
 ---
 
+- Enabled inline markdown (bold, italic, links) for all description fields and kept SEO metadata
+  clean by stripping markdown in page summaries and JSON-LD.
+
+---
+
 ## 10: SEO and final improvements
 
 - Added `data/seo.json` plus `lib/seo.ts` helpers for global defaults and per-page metadata.

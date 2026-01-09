@@ -5,6 +5,7 @@ import { Check, Copy, Linkedin, Mail } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 
 import { ContactDetailItem } from '@/components/contact-detail-item';
+import { InlineMarkdown } from '@/components/inline-markdown';
 import type { ContactEmail } from '@/lib/contact';
 import { cn } from '@/lib/utils';
 
@@ -37,7 +38,9 @@ export function ContactDetails({ email, linkedinUrl, intro, className }: Contact
 
   return (
     <div className={cn('w-full space-y-4', className)}>
-      <p className="text-muted-foreground text-xl leading-relaxed">{intro}</p>
+      <p className="text-muted-foreground text-xl leading-relaxed">
+        <InlineMarkdown text={intro} />
+      </p>
       <div className="space-y-4">
         <ContactDetailItem label="Email" labelClassName="sr-only">
           <div className="flex flex-wrap items-center gap-3">

@@ -1,6 +1,7 @@
 import { ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 
+import { InlineMarkdown } from '@/components/inline-markdown';
 import { Badge } from '@/components/ui/badge';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -20,7 +21,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <CardTitle className="text-primary text-xl font-semibold">{project.title}</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-1 flex-col gap-1">
-        <p className="text-muted-foreground text-sm leading-relaxed">{project.description}</p>
+        <p className="text-muted-foreground text-sm leading-relaxed">
+          <InlineMarkdown text={project.description} />
+        </p>
         <div aria-label={`${project.title} tags`} className="mt-2 flex flex-wrap gap-2">
           {project.tags.map((tag) => (
             <Badge key={`${project.title}-${tag}`} variant="secondary">

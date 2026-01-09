@@ -1,4 +1,5 @@
 import AnimatedContent from '@/components/animation/animated-content';
+import { InlineMarkdown } from '@/components/inline-markdown';
 import type { CareerTimelineItem } from '@/lib/career';
 
 type CareerItemProps = Readonly<{
@@ -51,7 +52,7 @@ export function CareerItem({ delay, isLast, item }: CareerItemProps) {
           </div>
           <div className="text-foreground text-sm font-semibold sm:hidden">{item.period}</div>
           <p className="text-muted-foreground text-sm leading-relaxed sm:text-base">
-            {item.description}
+            <InlineMarkdown text={item.description} />
           </p>
         </div>
       </AnimatedContent>

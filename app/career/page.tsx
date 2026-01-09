@@ -5,9 +5,10 @@ import { Briefcase } from 'lucide-react';
 
 import AnimatedContent from '@/components/animation/animated-content';
 import { CareerItem } from '@/components/career-item';
+import { InlineMarkdown } from '@/components/inline-markdown';
 import { Badge } from '@/components/ui/badge';
 import type { CareerContent } from '@/lib/career';
-import { buildPageMetadata, getSeoContent } from '@/lib/seo';
+import { buildPageMetadata, getSeoContent, stripMarkdown } from '@/lib/seo';
 
 import type { Metadata } from 'next';
 
@@ -24,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return buildPageMetadata(seo, {
     title: content.title,
-    description: content.description,
+    description: stripMarkdown(content.description),
     path: '/career',
   });
 }
@@ -48,7 +49,7 @@ export default async function CareerPage() {
                   {content.title}
                 </h1>
                 <p className="text-muted-foreground text-base leading-relaxed sm:text-lg">
-                  {content.description}
+                  <InlineMarkdown text={content.description} />
                 </p>
               </div>
             </div>

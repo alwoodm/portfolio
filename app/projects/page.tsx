@@ -4,10 +4,11 @@ import path from 'node:path';
 import { Layers } from 'lucide-react';
 
 import AnimatedContent from '@/components/animation/animated-content';
+import { InlineMarkdown } from '@/components/inline-markdown';
 import { ProjectCard } from '@/components/project-card';
 import { Badge } from '@/components/ui/badge';
 import type { ProjectsContent } from '@/lib/projects';
-import { buildPageMetadata, getSeoContent, getSiteUrl } from '@/lib/seo';
+import { buildPageMetadata, getSeoContent, getSiteUrl, stripMarkdown } from '@/lib/seo';
 
 import type { Metadata } from 'next';
 
@@ -24,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return buildPageMetadata(seo, {
     title: content.title,
-    description: content.description,
+    description: stripMarkdown(content.description),
     path: '/projects',
   });
 }
@@ -41,7 +42,7 @@ export default async function ProjectsPage() {
       item: {
         '@type': 'CreativeWork',
         name: project.title,
-        description: project.description,
+        description: stripMarkdown(project.description),
         url: project.link ?? `${siteUrl}/projects`,
         keywords: project.tags.join(', '),
       },
@@ -67,7 +68,7 @@ export default async function ProjectsPage() {
                   {projects.title}
                 </h1>
                 <p className="text-muted-foreground text-base leading-relaxed sm:text-lg">
-                  {projects.description}
+                  <InlineMarkdown text={projects.description} />
                 </p>
               </div>
             </div>
