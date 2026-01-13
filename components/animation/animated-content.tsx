@@ -1,16 +1,37 @@
 'use client';
 
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef } from 'react';
+
+import { useIsMobile } from '@/hooks/use-mobile';
 
 import type { HTMLAttributes, ReactNode } from 'react';
 
-gsap.registerPlugin(ScrollTrigger);
+type GsapBundle = {
+  gsap: GSAP;
+  ScrollTrigger: typeof ScrollTrigger;
+};
+
+let gsapLoader: Promise<GsapBundle> | null = null;
+
+async function loadGsap() {
+  if (!gsapLoader) {
+    gsapLoader = Promise.all([import('gsap'), import('gsap/ScrollTrigger')]).then(
+      ([gsapModule, scrollTriggerModule]) => {
+        const { gsap } = gsapModule;
+        const { ScrollTrigger } = scrollTriggerModule;
+        gsap.registerPlugin(ScrollTrigger);
+        return { gsap, ScrollTrigger };
+      },
+    );
+  }
+
+  return gsapLoader;
+}
 
 type AnimatedContentProps = HTMLAttributes<HTMLDivElement> & {
   children: ReactNode;
   container?: Element | string | null;
+  disableOnMobile?: boolean;
   distance?: number;
   direction?: 'vertical' | 'horizontal';
   reverse?: boolean;
@@ -31,6 +52,7 @@ type AnimatedContentProps = HTMLAttributes<HTMLDivElement> & {
 const AnimatedContent = ({
   children,
   container,
+  disableOnMobile = false,
   distance = 100,
   direction = 'vertical',
   reverse = false,
@@ -50,10 +72,18 @@ const AnimatedContent = ({
   ...props
 }: AnimatedContentProps) => {
   const ref = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    if (disableOnMobile && isMobile) {
+      el.style.transform = 'translate3d(0, 0, 0) scale(1)';
+      el.style.opacity = '1';
+      el.style.visibility = 'visible';
+      return;
+    }
 
     let scrollerTarget: Element | string | null =
       container || document.querySelector('#snap-main-container');
@@ -66,17 +96,20 @@ const AnimatedContent = ({
     const offset = reverse ? -distance : distance;
     const startPct = (1 - threshold) * 100;
 
-    gsap.set(el, {
-      [axis]: offset,
-      scale,
-      opacity: animateOpacity ? initialOpacity : 1,
-      visibility: 'visible',
-    });
+    const translate =
+      axis === 'x' ? `translate3d(${offset}px, 0, 0)` : `translate3d(0, ${offset}px, 0)`;
+    el.style.transform = `${translate} scale(${scale})`;
+    el.style.opacity = animateOpacity ? String(initialOpacity) : '1';
+    el.style.visibility = 'visible';
 
-    const tl = gsap.timeline({
-      paused: true,
-      delay,
-      onComplete: () => {
+    let active = true;
+    let cleanup = () => {};
+
+    const setupAnimation = async () => {
+      const { gsap, ScrollTrigger } = await loadGsap();
+      if (!active) return;
+
+      const handleTimelineComplete = () => {
         if (onComplete) {
           onComplete();
         }
@@ -88,39 +121,54 @@ const AnimatedContent = ({
             delay: disappearAfter,
             duration: disappearDuration,
             ease: disappearEase,
-            onComplete: () => onDisappearanceComplete?.(),
+            onComplete: onDisappearanceComplete,
           });
         }
-      },
-    });
+      };
 
-    tl.to(el, {
-      [axis]: 0,
-      scale: 1,
-      opacity: 1,
-      duration,
-      ease,
-    });
+      const tl = gsap.timeline({
+        paused: true,
+        delay,
+        onComplete: handleTimelineComplete,
+      });
 
-    const defaultScroller = globalThis.window || undefined;
+      tl.to(el, {
+        [axis]: 0,
+        scale: 1,
+        opacity: 1,
+        duration,
+        ease,
+      });
 
-    const st = ScrollTrigger.create({
-      trigger: el,
-      scroller: scrollerTarget ?? defaultScroller,
-      start: `top ${startPct}%`,
-      once: true,
-      onEnter: () => tl.play(),
-    });
+      const defaultScroller = globalThis.window || undefined;
+
+      const st = ScrollTrigger.create({
+        trigger: el,
+        scroller: scrollerTarget ?? defaultScroller,
+        start: `top ${startPct}%`,
+        once: true,
+        onEnter: () => tl.play(),
+      });
+
+      cleanup = () => {
+        st.kill();
+        tl.kill();
+      };
+    };
+
+    void setupAnimation();
 
     return () => {
-      st.kill();
-      tl.kill();
+      active = false;
+      cleanup();
     };
   }, [
     container,
     distance,
     direction,
+    disableOnMobile,
     reverse,
+    isMobile,
     duration,
     ease,
     initialOpacity,

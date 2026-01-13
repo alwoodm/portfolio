@@ -53,9 +53,10 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-[calc(100svh-96px)] flex-col items-center justify-center px-6 sm:min-h-[calc(100svh-112px)] sm:px-10 lg:-translate-y-14">
-      <div className="mx-auto grid w-full grid-cols-1 items-center gap-10 md:w-[70%] lg:w-[70%] lg:grid-cols-2 lg:gap-16">
+      <div className="mx-auto grid w-full grid-cols-1 items-center gap-8 sm:gap-10 md:w-[70%] lg:w-[70%] lg:grid-cols-2 lg:gap-16">
         <AnimatedContent
           animateOpacity
+          disableOnMobile
           reverse
           className="w-full lg:justify-self-start"
           delay={leftColumnDelay}
@@ -81,6 +82,7 @@ export default async function Home() {
         </AnimatedContent>
         <AnimatedContent
           animateOpacity
+          disableOnMobile
           className="flex w-full items-center justify-center lg:justify-self-end"
           delay={0.18}
           direction="horizontal"
@@ -88,7 +90,7 @@ export default async function Home() {
           duration={1}
         >
           <HeroIcon
-            className="h-auto w-full max-w-[432px] sm:max-w-[624px] lg:max-w-[720px]"
+            className="h-auto w-full max-w-[240px] sm:max-w-[432px] lg:max-w-[720px]"
             title=""
           />
         </AnimatedContent>

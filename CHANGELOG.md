@@ -2,8 +2,12 @@
 
 ---
 
+- Removed mobile data-based lazy loading to keep animations and dock behavior consistent across devices.
+- Simplified dock reveal timing to a CSS-only fade-in without stateful delays.
 - Enabled inline markdown (bold, italic, links) for all description fields and kept SEO metadata
   clean by stripping markdown in page summaries and JSON-LD.
+- Replaced the static robots.txt with a Next.js robots route and disabled robots generation in
+  `next-sitemap` to keep directives valid in production.
 
 ---
 

@@ -20,12 +20,15 @@ export function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const isMobile = useIsMobile();
+  const shouldDelayDock = isMobile && pathname === '/';
+  const dockDelayMs = shouldDelayDock ? 600 : 0;
 
   const items: DockItemData[] = NAV_ITEMS.map((item) => {
     const isActive = pathname === item.href;
 
     return {
       ...item,
+      ariaLabel: item.label,
       onClick: () => router.push(item.href),
       className: cn(
         'transition-[box-shadow,border-color] duration-200',
@@ -45,7 +48,17 @@ export function Navbar() {
   );
 
   return (
-    <div className="pointer-events-none fixed top-[env(safe-area-inset-top)] right-0 left-0 z-40 flex justify-center py-4">
+    <div
+      className={cn(
+        'pointer-events-none fixed top-[env(safe-area-inset-top)] right-0 left-0 z-40 flex justify-center py-4',
+        shouldDelayDock ? 'dock-appear' : 'opacity-100',
+      )}
+      style={
+        shouldDelayDock
+          ? { animationDelay: `${dockDelayMs}ms`, animationFillMode: 'both' }
+          : undefined
+      }
+    >
       <Dock
         baseItemSize={baseItemSize}
         className={panelClassName}

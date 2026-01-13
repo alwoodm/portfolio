@@ -1,6 +1,7 @@
 'use client';
 
 import TextType from '@/components/animation/text-type';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { cn } from '@/lib/utils';
 
 type HeroTextProps = Readonly<{
@@ -20,13 +21,15 @@ export function HeroText({
   secondaryRoles,
   secondaryRoleDelayMs = 0,
 }: HeroTextProps) {
+  const isMobile = useIsMobile();
   const nameParts = name.split(' ').filter(Boolean);
   const [firstName, ...restNames] = nameParts as [string, ...string[]];
   const lastName = restNames.join(' ');
   const typedRoles = secondaryRoles;
+  const delayMs = isMobile ? Math.max(secondaryRoleDelayMs, 700) : secondaryRoleDelayMs;
 
   return (
-    <div className={cn('flex flex-col gap-4 text-left', className)} data-hero="text">
+    <div className={cn('flex flex-col gap-3 text-left sm:gap-4', className)} data-hero="text">
       <p
         className="text-muted-foreground text-base font-medium tracking-[0.28em] uppercase sm:text-base"
         data-hero="intro"
@@ -53,19 +56,21 @@ export function HeroText({
         <span className="block">
           I am a <span className="text-foreground font-semibold">{primaryRole}</span>
         </span>
-        <span className="block">
-          and{' '}
-          <TextType
-            startOnVisible
-            as="span"
-            className="text-primary font-semibold"
-            deletingSpeed={40}
-            initialDelay={secondaryRoleDelayMs}
-            pauseDuration={1200}
-            text={typedRoles}
-            typingSpeed={70}
-          />
-        </span>
+        {typedRoles.length > 0 ? (
+          <span className="block">
+            and{' '}
+            <TextType
+              startOnVisible
+              as="span"
+              className="text-primary font-semibold"
+              deletingSpeed={40}
+              initialDelay={delayMs}
+              pauseDuration={1200}
+              text={typedRoles}
+              typingSpeed={70}
+            />
+          </span>
+        ) : null}
       </p>
     </div>
   );

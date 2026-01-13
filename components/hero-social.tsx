@@ -32,7 +32,7 @@ export function HeroSocial({
   links,
 }: HeroSocialProps) {
   return (
-    <div className={cn('flex flex-wrap gap-3 pt-6', className)} data-hero="social">
+    <div className={cn('flex flex-wrap gap-3 pt-4 sm:pt-6', className)} data-hero="social">
       {links.map((link, index) => {
         const delay = animationDelay + index * animationStagger;
 
@@ -40,6 +40,7 @@ export function HeroSocial({
           <AnimatedContent
             key={link.label}
             animateOpacity
+            disableOnMobile
             className="inline-flex"
             delay={delay}
             direction="vertical"
@@ -50,7 +51,7 @@ export function HeroSocial({
               aria-label={link.label}
               className={cn(
                 buttonVariants({ variant: 'outline', size: 'icon' }),
-                'bg-card text-foreground hover:bg-card h-12 w-12 shadow-md',
+                'bg-card text-foreground hover:bg-card h-10 w-10 shadow-md sm:h-12 sm:w-12',
               )}
               href={link.href}
               rel="noreferrer"

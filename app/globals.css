@@ -227,6 +227,17 @@
   }
 }
 
+@keyframes dock-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes skills-loop {
   0% {
     transform: translateX(0);
@@ -269,6 +280,19 @@
 @layer utilities {
   .animate-skills-loop {
     animation: skills-loop 32s linear infinite;
+  }
+
+  .dock-appear {
+    opacity: 0;
+    animation: dock-appear 0.3s ease forwards;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dock-appear {
+      opacity: 1;
+      animation: none;
+      transform: none;
+    }
   }
 
   .optical-fix::first-letter {

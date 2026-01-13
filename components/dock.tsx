@@ -16,6 +16,7 @@ export type DockItemData = {
   label: React.ReactNode;
   onClick: () => void;
   className?: string;
+  ariaLabel?: string;
 };
 
 export type DockProps = Readonly<{
@@ -32,6 +33,7 @@ export type DockProps = Readonly<{
 }>;
 
 type DockItemProps = Readonly<{
+  ariaLabel?: string;
   className?: string;
   children: React.ReactNode;
   onClick?: () => void;
@@ -43,6 +45,7 @@ type DockItemProps = Readonly<{
 }>;
 
 function DockItem({
+  ariaLabel,
   children,
   className = '',
   onClick,
@@ -74,6 +77,7 @@ function DockItem({
     <motion.div
       ref={ref}
       aria-haspopup="true"
+      aria-label={ariaLabel}
       className={`border-border bg-background/90 text-foreground relative inline-flex items-center justify-center rounded-full border-2 shadow-md backdrop-blur ${className}`}
       role="button"
       style={{
@@ -161,7 +165,6 @@ export default function Dock({
 }: DockProps) {
   const mouseX = useMotionValue(Infinity);
   const isHovered = useMotionValue(0);
-
   const panelPosition = position === 'top' ? 'top-0 items-start' : 'bottom-2 items-end';
   const panelPadding = position === 'top' ? 'pt-2 pb-2' : 'pb-2 pt-2';
 
@@ -174,7 +177,7 @@ export default function Dock({
 
   return (
     <motion.div
-      className={`relative mx-2 flex w-full max-w-full items-center justify-center ${containerClassName}`}
+      className={`relative flex w-full max-w-full items-center justify-center px-2 ${containerClassName}`}
       style={{ height, scrollbarWidth: 'none' }}
     >
       <motion.div
@@ -194,6 +197,7 @@ export default function Dock({
         {items.map((item, index) => (
           <DockItem
             key={index}
+            ariaLabel={item.ariaLabel ?? (typeof item.label === 'string' ? item.label : undefined)}
             baseItemSize={baseItemSize}
             className={item.className}
             distance={distance}
