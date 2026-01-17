@@ -21,20 +21,26 @@ ENV NODE_ENV=production
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
-# Use non-root user for runtime (via entrypoint drop)
 RUN apk add --no-cache su-exec \
     && addgroup -g 1001 nodejs \
     && adduser -S -u 1001 nextjs -G nodejs
 
+# Copy standalone build (includes server.js and minimal node_modules)
+COPY --from=builder /app/.next/standalone ./
+
+# Copy static files (CRITICAL - fixes 404s for _next/static/*)
+COPY --from=builder /app/.next/static ./.next/static
+
+# Copy public assets
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/next.config.ts ./next.config.ts
+
+# Copy data files (will be overwritten by volume mount)
 COPY --from=builder /app/data ./data
+
+# Copy scripts for admin token generation
 COPY --from=builder /app/scripts ./scripts
 
-RUN chown -R nextjs:nodejs /app/data /app/scripts /app/.next \
+RUN chown -R nextjs:nodejs /app \
     && chmod +x /app/scripts/docker-entrypoint.sh
 
 EXPOSE 3000

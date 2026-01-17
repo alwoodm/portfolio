@@ -2,6 +2,9 @@
 
 ---
 
+- Enabled Next.js standalone output mode and updated Dockerfile to copy `.next/static` separately, fixing 404 errors for static assets in Docker deployments.
+- Updated `docker-entrypoint.sh` to use `node server.js` and reduced image size from ~500MB to ~285MB.
+- Added `.env*` and `*.md` to `.dockerignore` for faster builds.
 - Removed mobile data-based lazy loading to keep animations and dock behavior consistent across devices.
 - Simplified dock reveal timing to a CSS-only fade-in without stateful delays.
 - Enabled inline markdown (bold, italic, links) for all description fields and kept SEO metadata

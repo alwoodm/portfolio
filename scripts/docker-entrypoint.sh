@@ -14,4 +14,4 @@ if [ -f /app/.env ]; then
 fi
 
 su-exec nextjs node /app/scripts/generate-admin-token.mjs --if-missing
-exec su-exec nextjs node /app/node_modules/next/dist/bin/next start -H 0.0.0.0 -p "${PORT:-3000}"
+exec su-exec nextjs node server.js

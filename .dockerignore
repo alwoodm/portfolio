@@ -13,3 +13,6 @@ docker-compose.yml
 tmp
 temp
 *.tsbuildinfo
+.env*
+*.md
+LICENSE
