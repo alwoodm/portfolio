@@ -43,7 +43,13 @@ export default async function AboutPage() {
     <main className="w-full px-6 pt-8 pb-16 sm:px-10 lg:pb-20">
       <div className="mx-auto w-full space-y-8 sm:space-y-12 md:w-[70%]">
         <section className="w-full">
-          <AnimatedContent animateOpacity className="w-full" distance={40} duration={1.05}>
+          <AnimatedContent
+            animateOpacity
+            className="w-full"
+            distance={40}
+            duration={1.05}
+            trigger="load"
+          >
             <div className="flex flex-col items-start gap-4 text-left">
               <Badge className="gap-1.5" variant="secondary">
                 <User className="h-4 w-4" />
@@ -69,6 +75,7 @@ export default async function AboutPage() {
             direction="horizontal"
             distance={56}
             duration={1.1}
+            trigger="load"
           >
             <div className="space-y-4 text-left">
               <div className="flex items-center gap-3">
@@ -103,6 +110,7 @@ export default async function AboutPage() {
             direction="vertical"
             distance={56}
             duration={1.1}
+            trigger="load"
           >
             <AboutInfoCard
               className="w-full md:w-fit"
@@ -120,6 +128,7 @@ export default async function AboutPage() {
             direction="horizontal"
             distance={56}
             duration={1.1}
+            trigger="load"
           >
             <div className="flex w-full flex-col gap-6 md:w-fit">
               <AboutInfoCard

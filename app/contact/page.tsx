@@ -44,7 +44,13 @@ export default async function ContactPage() {
     <main className="w-full px-6 pt-8 pb-16 sm:px-10 lg:pb-20">
       <div className="mx-auto w-full space-y-10 sm:space-y-12 md:w-[70%]">
         <section className="w-full">
-          <AnimatedContent animateOpacity className="w-full" distance={32} duration={0.9}>
+          <AnimatedContent
+            animateOpacity
+            className="w-full"
+            distance={32}
+            duration={0.9}
+            trigger="load"
+          >
             <div className="flex flex-col items-start gap-4 text-left">
               <Badge className="gap-1.5" variant="secondary">
                 <Mail className="h-4 w-4" />
@@ -58,7 +64,13 @@ export default async function ContactPage() {
         </section>
 
         <section className="grid w-full items-start gap-8 md:grid-cols-[minmax(0,1fr)_260px] lg:grid-cols-[minmax(0,1fr)_320px]">
-          <AnimatedContent animateOpacity className="w-full" distance={40} duration={0.9}>
+          <AnimatedContent
+            animateOpacity
+            className="w-full"
+            distance={40}
+            duration={0.9}
+            trigger="load"
+          >
             <ContactForm />
           </AnimatedContent>
 
@@ -69,6 +81,7 @@ export default async function ContactPage() {
             direction="vertical"
             distance={40}
             duration={0.9}
+            trigger="load"
           >
             <ContactDetails
               email={contact.email}

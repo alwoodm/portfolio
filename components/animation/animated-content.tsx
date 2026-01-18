@@ -32,6 +32,7 @@ type AnimatedContentProps = HTMLAttributes<HTMLDivElement> & {
   children: ReactNode;
   container?: Element | string | null;
   disableOnMobile?: boolean;
+  trigger?: 'scroll' | 'load';
   distance?: number;
   direction?: 'vertical' | 'horizontal';
   reverse?: boolean;
@@ -53,6 +54,7 @@ const AnimatedContent = ({
   children,
   container,
   disableOnMobile = false,
+  trigger = 'scroll',
   distance = 100,
   direction = 'vertical',
   reverse = false,
@@ -140,18 +142,23 @@ const AnimatedContent = ({
         ease,
       });
 
-      const defaultScroller = globalThis.window || undefined;
+      let st: ScrollTrigger | null = null;
 
-      const st = ScrollTrigger.create({
-        trigger: el,
-        scroller: scrollerTarget ?? defaultScroller,
-        start: `top ${startPct}%`,
-        once: true,
-        onEnter: () => tl.play(),
-      });
+      if (trigger === 'scroll') {
+        const defaultScroller = globalThis.window || undefined;
+        st = ScrollTrigger.create({
+          trigger: el,
+          scroller: scrollerTarget ?? defaultScroller,
+          start: `top ${startPct}%`,
+          once: true,
+          onEnter: () => tl.play(),
+        });
+      } else {
+        tl.play();
+      }
 
       cleanup = () => {
-        st.kill();
+        st?.kill();
         tl.kill();
       };
     };
@@ -167,6 +174,7 @@ const AnimatedContent = ({
     distance,
     direction,
     disableOnMobile,
+    trigger,
     reverse,
     isMobile,
     duration,

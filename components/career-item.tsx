@@ -21,6 +21,7 @@ export function CareerItem({ delay, isLast, item }: CareerItemProps) {
         direction="horizontal"
         distance={64}
         duration={0.9}
+        trigger="load"
       >
         <div className="career-period text-foreground text-sm font-semibold sm:text-lg">
           {item.period}
@@ -37,6 +38,7 @@ export function CareerItem({ delay, isLast, item }: CareerItemProps) {
         direction="horizontal"
         distance={64}
         duration={0.9}
+        trigger="load"
       >
         <div className="space-y-2">
           <div className="text-foreground text-lg leading-snug font-semibold sm:text-2xl">

@@ -57,7 +57,13 @@ export default async function ProjectsPage() {
       />
       <div className="mx-auto w-full space-y-10 sm:space-y-12 md:w-[70%]">
         <section className="w-full">
-          <AnimatedContent animateOpacity className="w-full" distance={32} duration={0.9}>
+          <AnimatedContent
+            animateOpacity
+            className="w-full"
+            distance={32}
+            duration={0.9}
+            trigger="load"
+          >
             <div className="flex flex-col items-start gap-4 text-left">
               <Badge className="gap-1.5" variant="secondary">
                 <Layers className="h-4 w-4" />
@@ -85,6 +91,7 @@ export default async function ProjectsPage() {
                   delay={0.12 + index * 0.08}
                   distance={28}
                   duration={0.7}
+                  trigger="load"
                 >
                   <ProjectCard project={project} />
                 </AnimatedContent>

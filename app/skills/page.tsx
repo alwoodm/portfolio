@@ -44,7 +44,13 @@ export default async function SkillsPage() {
   return (
     <main className="mx-auto w-full max-w-5xl px-6 pt-8 pb-12 sm:px-10 lg:pb-16">
       <div className="mx-auto w-full space-y-10" style={{ maxWidth: maxRowWidth }}>
-        <AnimatedContent animateOpacity className="w-full" distance={32} duration={0.8}>
+        <AnimatedContent
+          animateOpacity
+          className="w-full"
+          distance={32}
+          duration={0.8}
+          trigger="load"
+        >
           <div className="flex flex-col items-start space-y-4 text-left">
             <Badge className="gap-1.5" variant="secondary">
               <Sparkles className="h-4 w-4" />
@@ -66,6 +72,7 @@ export default async function SkillsPage() {
               delay={0.1 + index * 0.08}
               distance={28}
               duration={0.7}
+              trigger="load"
             >
               <SkillsSection items={category.items} title={category.title} />
             </AnimatedContent>
